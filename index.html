@@ -153,7 +153,27 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         
-                        <!-- 1. 歴史と音声アーカイブ -->
+                        <!-- 1. 歴史探訪ムービー（最上部に配置） -->
+                        <a href="#cat-movies" class="category-card p-4 bg-gradient-to-br from-white via-stone-50/50 to-red-50/20 rounded-2xl border border-red-200/60 hover:border-red-400 transition-all block group shadow-sm">
+                            <div class="flex items-start space-x-3.5">
+                                <div class="w-10 h-10 rounded-xl bg-red-100 border border-red-200 flex items-center justify-center shrink-0 shadow-sm overflow-hidden text-red-800">
+                                    <svg class="cat-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center justify-between mb-1">
+                                        <h4 class="text-sm font-black text-stone-800 group-hover:text-red-800 transition-colors flex items-center gap-1.5">
+                                            歴史探訪ムービー
+                                            <span class="text-[9px] font-semibold px-2 py-0.5 rounded-full bg-red-100 text-red-800 border border-red-200">YouTube</span>
+                                        </h4>
+                                    </div>
+                                    <p class="text-[11px] text-stone-500 leading-relaxed">常源寺歴史探訪対談、相木市兵衛物語、300年老松の歌など、映像で辿る南相木村と歴史の記録アーカイブ。</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- 2. 常源寺の歴史と音声講話 -->
                         <a href="#cat-music" class="category-card p-4 bg-gradient-to-br from-white via-stone-50/50 to-amber-50/30 rounded-2xl border border-amber-200/70 hover:border-amber-400 transition-all block group shadow-sm">
                             <div class="flex items-start space-x-3.5">
                                 <div class="w-10 h-10 rounded-xl bg-amber-100 border border-amber-300 flex items-center justify-center shrink-0 shadow-sm overflow-hidden text-amber-800">
@@ -169,26 +189,6 @@
                                         </h4>
                                     </div>
                                     <p class="text-[11px] text-stone-500 leading-relaxed">常源寺の創建、開基・相木市兵衛公、開山・徳忠禅師の足跡やお寺の成り立ちを解説音声でお聴きいただけます。</p>
-                                </div>
-                            </div>
-                        </a>
-
-                        <!-- 2. 歴史探訪ムービー -->
-                        <a href="#cat-movies" class="category-card p-4 bg-gradient-to-br from-white via-stone-50/50 to-red-50/20 rounded-2xl border border-red-200/60 hover:border-red-400 transition-all block group shadow-sm">
-                            <div class="flex items-start space-x-3.5">
-                                <div class="w-10 h-10 rounded-xl bg-red-100 border border-red-200 flex items-center justify-center shrink-0 shadow-sm overflow-hidden text-red-800">
-                                    <svg class="cat-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                                    </svg>
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex items-center justify-between mb-1">
-                                        <h4 class="text-sm font-black text-stone-800 group-hover:text-red-800 transition-colors flex items-center gap-1.5">
-                                            歴史探訪ムービー
-                                            <span class="text-[9px] font-semibold px-2 py-0.5 rounded-full bg-red-100 text-red-800 border border-red-200">YouTube</span>
-                                        </h4>
-                                    </div>
-                                    <p class="text-[11px] text-stone-500 leading-relaxed">常源寺対談、相木市兵衛物語、300年老松の歌など、映像で辿る南相木村と歴史の記録アーカイブ。</p>
                                 </div>
                             </div>
                         </a>
@@ -291,7 +291,73 @@
                 <!-- プレイリスト一覧 -->
                 <div class="space-y-6" id="playlist">
 
-                    <!-- カテゴリー1: 常源寺の歴史と音声講話 -->
+                    <!-- カテゴリー1（最上部）: 歴史探訪ムービー -->
+                    <div id="cat-movies" class="p-4 rounded-2xl bg-red-50/40 border border-red-200/80 space-y-3 scroll-mt-20">
+                        <div class="flex items-center space-x-2.5 pb-2.5 border-b border-red-200">
+                            <div class="w-7 h-7 rounded-lg bg-red-100 border border-red-300 flex items-center justify-center shrink-0 shadow-sm text-red-800">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <h3 class="text-xs font-black text-red-950 tracking-wider">歴史探訪ムービー</h3>
+                                <span class="text-[9px] font-semibold px-2 py-0.5 rounded-full bg-red-100 text-red-800 border border-red-200">動画（YouTube）</span>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-2.5">
+                            <!-- YouTube動画 1: 常源寺（南相木村）歴史探訪対談 -->
+                            <a href="https://youtu.be/GR1cpj3bo3s" target="_blank" rel="noopener noreferrer" onclick="selectYouTubeItem('GR1cpj3bo3s', '常源寺（南相木村）歴史探訪対談', [
+                                '【常源寺 歴史探訪】南相木村の歴史ある名刹・常源寺にまつわる貴重な対談映像です。',
+                                '【地域と仏閣】開基・相木市兵衛公の歴史や、地域に深く根ざしてきた信仰と文化を深く語り合います。',
+                                '【歴史のロマン】南相木村の豊かな自然と連なる歴史の重みを実感していただけます。'
+                            ], this)" class="group block p-3 rounded-xl bg-white/90 border border-red-200/80 hover:border-red-400 hover:bg-white hover:shadow-md transition-all duration-300">
+                                <div class="flex items-center justify-between gap-2.5">
+                                    <div class="min-w-0 flex-1">
+                                        <h4 class="text-xs md:text-sm font-bold text-stone-800 group-hover:text-red-800 leading-snug">常源寺（南相木村）歴史探訪対談</h4>
+                                        <p class="text-[10px] text-red-700 font-medium mt-0.5 leading-snug">🎬 寺院の歴史 • 探訪対談アーカイブ (https://youtu.be/GR1cpj3bo3s)</p>
+                                    </div>
+                                    <span class="text-[11px] text-white font-bold bg-red-600 group-hover:bg-red-700 px-2.5 py-1 rounded-lg shadow-sm transition-all flex items-center gap-1 shrink-0">
+                                        ▶ YouTube ↗
+                                    </span>
+                                </div>
+                            </a>
+
+                            <!-- YouTube動画 2: 相木市兵衛物語 -->
+                            <a href="https://www.youtube.com/watch?v=gz16zgcfpAM" target="_blank" rel="noopener noreferrer" onclick="selectYouTubeItem('gz16zgcfpAM', '相木市兵衛物語', [
+                                '【義民・武将 相木市兵衛】南相木村の歴史に大きな名を刻んだ領主・相木市兵衛の物語。',
+                                '【領民を慈しむ心】戦国の動乱期において武功を立てつつも、領内を平和に導いた先人の志を描きます。',
+                                '【未来へ語り継ぐ】地域の誇りとして後世へ伝えたい伝承と歴史ロマン。'
+                            ], this)" class="group block p-3 rounded-xl bg-white/90 border border-red-200/80 hover:border-red-400 hover:bg-white hover:shadow-md transition-all duration-300">
+                                <div class="flex items-center justify-between gap-2.5">
+                                    <div class="min-w-0 flex-1">
+                                        <h4 class="text-xs md:text-sm font-bold text-stone-800 group-hover:text-red-800 leading-snug">相木市兵衛物語</h4>
+                                        <p class="text-[10px] text-red-700 font-medium mt-0.5 leading-snug">🎬 歴史伝承 • 相木氏の足跡 (https://youtu.be/gz16zgcfpAM)</p>
+                                    </div>
+                                    <span class="text-[11px] text-white font-bold bg-red-600 group-hover:bg-red-700 px-2.5 py-1 rounded-lg shadow-sm transition-all flex items-center gap-1 shrink-0">
+                                        ▶ YouTube ↗
+                                    </span>
+                                </div>
+                            </a>
+
+                            <!-- YouTube動画 3: AIの相木市兵衛が語る -->
+                            <a href="https://youtu.be/63pKhd6o9RA" target="_blank" rel="noopener noreferrer" onclick="selectYouTubeItem('63pKhd6o9RA', 'AIの相木市兵衛が語る', [
+                                '【AIが蘇らせる戦国武将】開基・相木市兵衛常喜公が現代に語りかける特別動画です。',
+                                '【南相木への想い】常源寺創建に込めた領民平安への願いと、戦国の世を駆け抜けた自らの歴史を紐解きます。',
+                                '【時空を超えたメッセージ】五百年の時を経て語り継がれる、郷土の歴史と未来への祈りを込めた作品。'
+                            ], this)" class="group block p-3 rounded-xl bg-white/90 border border-red-200/80 hover:border-red-400 hover:bg-white hover:shadow-md transition-all duration-300">
+                                <div class="flex items-center justify-between gap-2.5">
+                                    <div class="min-w-0 flex-1">
+                                        <h4 class="text-xs md:text-sm font-bold text-stone-800 group-hover:text-red-800 leading-snug">AIの相木市兵衛が語る</h4>
+                                        <p class="text-[10px] text-red-700 font-medium mt-0.5 leading-snug">🎬 AI歴史解説 • 市兵衛公が語る創建の想い (https://youtu.be/63pKhd6o9RA)</p>
+                                    </div>
+                                    <span class="text-[11px] text-white font-bold bg-red-600 group-hover:bg-red-700 px-2.5 py-1 rounded-lg shadow-sm transition-all flex items-center gap-1 shrink-0">
+                                        ▶ YouTube ↗
+                                    </span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- カテゴリー2: 常源寺の歴史と音声講話 -->
                     <div id="cat-music" class="p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80 space-y-3 scroll-mt-20">
                         <div class="flex items-center space-x-2.5 pb-2.5 border-b border-amber-200">
                             <div class="w-7 h-7 rounded-lg bg-amber-100 border border-amber-300 flex items-center justify-center shrink-0 shadow-sm text-amber-900">
@@ -363,87 +429,6 @@
                                     <span class="text-xs text-amber-800 font-bold bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200">聴く 🎧</span>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- カテゴリー2: 歴史探訪ムービー -->
-                    <div id="cat-movies" class="p-4 rounded-2xl bg-red-50/40 border border-red-200/80 space-y-3 scroll-mt-20">
-                        <div class="flex items-center space-x-2.5 pb-2.5 border-b border-red-200">
-                            <div class="w-7 h-7 rounded-lg bg-red-100 border border-red-300 flex items-center justify-center shrink-0 shadow-sm text-red-800">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <h3 class="text-xs font-black text-red-950 tracking-wider">歴史探訪ムービー</h3>
-                                <span class="text-[9px] font-semibold px-2 py-0.5 rounded-full bg-red-100 text-red-800 border border-red-200">動画（YouTube）</span>
-                            </div>
-                        </div>
-                        
-                        <div class="space-y-2.5">
-                            <!-- YouTube動画 1: 常源寺（南相木村）歴史探訪対談 -->
-                            <a href="https://www.youtube.com/watch?v=GR1cpj3bo3s" target="_blank" rel="noopener noreferrer" onclick="selectYouTubeItem('GR1cpj3bo3s', '常源寺（南相木村）歴史探訪対談', [
-                                '【常源寺 歴史探訪】南相木村の歴史ある名刹・常源寺にまつわる貴重な対談映像です。',
-                                '【地域と仏閣】開基・相木市兵衛公の歴史や、地域に深く根ざしてきた信仰と文化を深く語り合います。',
-                                '【歴史のロマン】南相木村の豊かな自然と連なる歴史の重みを実感していただけます。'
-                            ], this)" class="group block p-3 rounded-xl bg-white/90 border border-red-200/80 hover:border-red-400 hover:bg-white hover:shadow-md transition-all duration-300">
-                                <div class="flex items-center justify-between gap-2.5">
-                                    <div class="min-w-0 flex-1">
-                                        <h4 class="text-xs md:text-sm font-bold text-stone-800 group-hover:text-red-800 leading-snug">常源寺（南相木村）歴史探訪対談</h4>
-                                        <p class="text-[10px] text-red-700 font-medium mt-0.5 leading-snug">🎬 寺院の歴史 • 探訪対談アーカイブ</p>
-                                    </div>
-                                    <span class="text-[11px] text-white font-bold bg-red-600 group-hover:bg-red-700 px-2.5 py-1 rounded-lg shadow-sm transition-all flex items-center gap-1 shrink-0">
-                                        ▶ YouTube ↗
-                                    </span>
-                                </div>
-                            </a>
-
-                            <!-- YouTube動画 2: 相木市兵衛物語 -->
-                            <a href="https://www.youtube.com/watch?v=gz16zgcfpAM" target="_blank" rel="noopener noreferrer" onclick="selectYouTubeItem('gz16zgcfpAM', '相木市兵衛物語', [
-                                '【義民・武将 相木市兵衛】南相木村の歴史に大きな名を刻んだ領主・相木市兵衛の物語。',
-                                '【領民を慈しむ心】戦国の動乱期において武功を立てつつも、領内を平和に導いた先人の志を描きます。',
-                                '【未来へ語り継ぐ】地域の誇りとして後世へ伝えたい伝承と歴史ロマン。'
-                            ], this)" class="group block p-3 rounded-xl bg-white/90 border border-red-200/80 hover:border-red-400 hover:bg-white hover:shadow-md transition-all duration-300">
-                                <div class="flex items-center justify-between gap-2.5">
-                                    <div class="min-w-0 flex-1">
-                                        <h4 class="text-xs md:text-sm font-bold text-stone-800 group-hover:text-red-800 leading-snug">相木市兵衛物語</h4>
-                                        <p class="text-[10px] text-red-700 font-medium mt-0.5 leading-snug">🎬 歴史伝承 • 相木氏の足跡</p>
-                                    </div>
-                                    <span class="text-[11px] text-white font-bold bg-red-600 group-hover:bg-red-700 px-2.5 py-1 rounded-lg shadow-sm transition-all flex items-center gap-1 shrink-0">
-                                        ▶ YouTube ↗
-                                    </span>
-                                </div>
-                            </a>
-
-                            <!-- YouTube動画 3: 300年 老松の歌・動画 -->
-                            <a href="https://www.youtube.com/watch?v=11ZavMRyBrc" target="_blank" rel="noopener noreferrer" onclick="selectYouTubeItem('11ZavMRyBrc', '300年 老松の歌・動画', [
-                                '【伝統の老松】南相木村に三百年受け継がれてきた「老松」の歴史と伝統をたたえる特別映像。',
-                                '【絆と繁栄】大樹のたくましさに家族や地域の健康・長寿・繁栄の願いを重ねた至高の作品です。'
-                            ], this)" class="group block p-3 rounded-xl bg-white/90 border border-red-200/80 hover:border-red-400 hover:bg-white hover:shadow-md transition-all duration-300">
-                                <div class="flex items-center justify-between gap-2.5">
-                                    <div class="min-w-0 flex-1">
-                                        <h4 class="text-xs md:text-sm font-bold text-stone-800 group-hover:text-red-800 leading-snug">300年 老松の歌・動画</h4>
-                                        <p class="text-[10px] text-red-700 font-medium mt-0.5 leading-snug">🎬 伝統・祝いの映像記録</p>
-                                    </div>
-                                    <span class="text-[11px] text-white font-bold bg-red-600 group-hover:bg-red-700 px-2.5 py-1 rounded-lg shadow-sm transition-all flex items-center gap-1 shrink-0">
-                                        ▶ YouTube ↗
-                                    </span>
-                                </div>
-                            </a>
-
-                            <!-- YouTube動画 4: 戌の満水（大洪水と八月一日のお墓参り） -->
-                            <a href="https://www.youtube.com/watch?v=wB8TLpjs-Qs" target="_blank" rel="noopener noreferrer" onclick="selectYouTubeItem('wB8TLpjs-Qs', '戌の満水（大洪水と先祖供養）', [
-                                '【戌の満水】寛保2年（1742年）に千曲川流域を襲った未曾有の大洪水「戌の満水」。',
-                                '【八月一日のお墓参り】亡くなられた多くの方々の御霊を供養するため、佐久地域では毎年8月1日にお墓参りをする美しい風習が受け継がれています。'
-                            ], this)" class="group block p-3 rounded-xl bg-white/90 border border-red-200/80 hover:border-red-400 hover:bg-white hover:shadow-md transition-all duration-300">
-                                <div class="flex items-center justify-between gap-2.5">
-                                    <div class="min-w-0 flex-1">
-                                        <h4 class="text-xs md:text-sm font-bold text-stone-800 group-hover:text-red-800 leading-snug">戌の満水（大洪水と先祖供養）</h4>
-                                        <p class="text-[10px] text-red-700 font-medium mt-0.5 leading-snug">🎬 地域歴史 • 八月一日供養の起源</p>
-                                    </div>
-                                    <span class="text-[11px] text-white font-bold bg-red-600 group-hover:bg-red-700 px-2.5 py-1 rounded-lg shadow-sm transition-all flex items-center gap-1 shrink-0">
-                                        ▶ YouTube ↗
-                                    </span>
-                                </div>
-                            </a>
                         </div>
                     </div>
 
