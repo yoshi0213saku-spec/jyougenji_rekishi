@@ -150,6 +150,26 @@
 
                 <hr class="border-amber-200/60">
 
+                <!-- テーマソング再生ボタン（カテゴリー上部にスリムに配置） -->
+                <div onclick="playAudio('./music_jyougenji_tokiwokoete.mp3', '常源寺・時を越えて', [
+                    '【テーマソング】峰雄山常源寺の五百年の歴史と祈りを紡ぐテーマソング「常源寺・時を越えて」。',
+                    '【伝統と未来】戦国の世から現代、そして未来へと受け継がれる先人たちの志と感謝の音色。',
+                    '【心を澄まして】南相木村の豊かな自然と深き信仰の歩みに想いを馳せながらお聴きください。'
+                ], this)" class="group cursor-pointer py-2.5 px-4 bg-gradient-to-r from-amber-950 via-amber-900 to-amber-950 hover:from-amber-900 hover:to-amber-800 text-amber-100 rounded-2xl border border-amber-500/40 shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-between gap-3">
+                    <div class="flex items-center space-x-3 min-w-0 flex-1">
+                        <div class="w-8 h-8 rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center shrink-0 text-amber-300 group-hover:scale-105 transition-transform">
+                            <svg class="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-2v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12 0c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-2"></path></svg>
+                        </div>
+                        <div class="min-w-0 flex-1 flex flex-wrap items-center gap-1.5 sm:gap-2.5">
+                            <span class="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-amber-500/30 text-amber-200 border border-amber-400/40 shrink-0">テーマソング</span>
+                            <h4 class="text-xs md:text-sm font-black text-amber-100 truncate title-serif tracking-wide">常源寺・時を越えて</h4>
+                        </div>
+                    </div>
+                    <span class="text-xs text-amber-950 font-bold bg-gradient-to-r from-amber-200 to-amber-300 group-hover:from-amber-100 group-hover:to-amber-200 px-3 py-1 rounded-xl shrink-0 transition-colors shadow-sm flex items-center gap-1">
+                        再生 🎧
+                    </span>
+                </div>
+
                 <section>
                     <div class="flex items-center justify-between mb-5">
                         <h2 class="text-xs font-bold text-amber-900 uppercase tracking-[0.3em]">Categories</h2>
