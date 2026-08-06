@@ -382,11 +382,28 @@
                             </div>
                             <div class="flex items-center gap-2">
                                 <h3 class="text-xs font-black text-amber-950 tracking-wider">常源寺の歴史と音声講話</h3>
-                                <span class="text-[9px] font-semibold px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300">音声解説・和歌</span>
+                                <span class="text-[9px] font-semibold px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300">音声解説・和歌・クイズ</span>
                             </div>
                         </div>
 
                         <div class="space-y-2.5">
+                            <!-- クイズ 1: 常源寺歴史・文化クイズ30問 -->
+                            <a href="https://yoshi0213saku-spec.github.io/jyougenji-kuiz77/" target="_blank" rel="noopener noreferrer" onclick="selectQuizItem('https://yoshi0213saku-spec.github.io/jyougenji-kuiz77/', '常源寺歴史・文化クイズ30問', [
+                                '【歴史と文化の挑戦】常源寺の五百年の歴史や仏閣・地域文化に関する30問のクイズです。',
+                                '【楽しく学ぶ】常源寺の創建、相木市兵衛公の足跡、徳忠禅師の教えなどをクイズ形式で楽しく確認できます。',
+                                '【挑戦してみよう】歴史の知識を深め、未来へつなぐ学びの広場としてぜひチャレンジしてください。'
+                            ], this)" class="group block p-3 rounded-xl bg-white/90 border border-amber-300/80 hover:border-amber-500 hover:bg-white hover:shadow-md transition-all duration-300">
+                                <div class="flex items-center justify-between gap-2.5">
+                                    <div class="min-w-0 flex-1">
+                                        <h4 class="text-xs md:text-sm font-bold text-stone-800 group-hover:text-amber-800 leading-snug">常源寺歴史・文化クイズ30問</h4>
+                                        <p class="text-[10px] text-amber-700 font-medium mt-0.5 leading-snug">🧩 体験型Webクイズ • 常源寺の歴史と文化を学べる30問 (https://yoshi0213saku-spec.github.io/jyougenji-kuiz77/)</p>
+                                    </div>
+                                    <span class="text-[11px] text-white font-bold bg-amber-600 group-hover:bg-amber-700 px-2.5 py-1 rounded-lg shadow-sm transition-all flex items-center gap-1 shrink-0">
+                                        💡 クイズ ↗
+                                    </span>
+                                </div>
+                            </a>
+
                             <!-- オーディオ 1: 常源寺創建と開基・相木市兵衛 -->
                             <div onclick="playAudio('./audio_jogenji_soken.mp3', '常源寺創建と開基・相木市兵衛', [
                                 '【常源寺の創建】天文19年（1550年）、田口城主となった相木市兵衛常喜公が領民の先祖供養のために開基となり創建されました。',
@@ -712,6 +729,47 @@
                     <p class="text-xs text-amber-200 font-bold mb-3">YouTube映像が開きます</p>
                     <a href="https://www.youtube.com/watch?v=${youtubeId}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1.5 px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-bold text-xs rounded-xl shadow transition">
                         <span>▶ YouTubeで直接視聴・再生する</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+            `;
+
+            indicator.textContent = `選択中: ${title}`;
+            setEpisodes(episodes);
+
+            mediaPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function selectQuizItem(quizUrl, title, episodes, element) {
+            clearActiveStates();
+            if (element) {
+                element.classList.add('track-active');
+            }
+
+            const mediaPanel = document.getElementById('media-panel');
+            const audioContainer = document.getElementById('audio-player-container');
+            const mainAudio = document.getElementById('main-audio-player');
+            const indicator = document.getElementById('playing-indicator');
+
+            if (!mainAudio.paused) {
+                mainAudio.pause();
+            }
+            audioContainer.classList.add('hidden');
+            mediaPanel.classList.remove('hidden');
+
+            document.getElementById('media-cat-icon').innerHTML = `<svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>`;
+            document.getElementById('media-cat-name').textContent = '常源寺の歴史と音声講話';
+            document.getElementById('media-type-badge').textContent = 'Webクイズ';
+            document.getElementById('media-title').textContent = title;
+
+            document.getElementById('media-display-area').innerHTML = `
+                <div class="p-6 text-center bg-gradient-to-r from-amber-950 via-stone-900 to-amber-950">
+                    <div class="w-14 h-14 mx-auto mb-3 rounded-full bg-amber-600 text-white flex items-center justify-center shadow-lg">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    </div>
+                    <p class="text-xs text-amber-200 font-bold mb-3">常源寺の歴史・文化クイズWebサイトが開きます</p>
+                    <a href="${quizUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1.5 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs rounded-xl shadow transition">
+                        <span>💡 クイズに挑戦する（外部サイト）</span>
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                     </a>
                 </div>
