@@ -88,6 +88,33 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* 特殊トップボタン（遺訓・テーマソング）の文字同化防止専用スタイル */
+        .top-audio-btn {
+            background: linear-gradient(135deg, #1c1917 0%, #451a03 50%, #1c1917 100%) !important;
+            border: 2px solid #b45309 !important;
+            color: #ffffff !important;
+        }
+        .top-audio-btn.track-active {
+            background: linear-gradient(135deg, #451a03 0%, #78350f 50%, #451a03 100%) !important;
+            border: 2px solid #f59e0b !important;
+            box-shadow: 0 0 18px rgba(245, 158, 11, 0.45) !important;
+        }
+        .top-audio-btn .btn-title {
+            color: #ffffff !important;
+            font-weight: 900 !important;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+        }
+        .top-audio-btn .btn-badge {
+            background-color: #d97706 !important;
+            color: #ffffff !important;
+            font-weight: 900 !important;
+        }
+        .top-audio-btn .btn-play-tag {
+            background-color: #f59e0b !important;
+            color: #0c0a09 !important;
+            font-weight: 900 !important;
+        }
+
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 10px; }
@@ -155,17 +182,17 @@
                     '【開基・相木市兵衛公の遺訓】領民の平安と平和を願い、常源寺を創建した相木市兵衛常喜公の遺訓です。',
                     '【心に刻む教え】乱世の時代を力強く生き抜き、人々の絆と感謝の心を重んじた市兵衛公の深き言葉。',
                     '【未来へのメッセージ】五百年の時を超えて、現代を生きる私たちへ語りかける平和への祈りと教え。'
-                ], this)" class="group cursor-pointer py-3 px-4 bg-stone-900 bg-gradient-to-r from-amber-950 via-stone-900 to-amber-950 hover:from-amber-900 hover:to-stone-800 text-amber-100 rounded-2xl border-2 border-amber-600/60 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-between gap-3 mb-3">
+                ], this)" class="top-audio-btn group cursor-pointer py-3.5 px-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-between gap-3 mb-3">
                     <div class="flex items-center space-x-3 min-w-0 flex-1">
                         <div class="w-8 h-8 rounded-xl bg-amber-500/30 border border-amber-400/60 flex items-center justify-center shrink-0 text-amber-300 group-hover:scale-105 transition-transform">
                             <svg class="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path></svg>
                         </div>
                         <div class="min-w-0 flex-1 flex flex-wrap items-center gap-1.5 sm:gap-2.5">
-                            <span class="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-amber-500 text-stone-950 shrink-0 shadow-sm">音声遺訓</span>
-                            <h4 class="text-xs md:text-sm font-black text-amber-100 truncate title-serif tracking-wide drop-shadow-sm">AI相木市兵衛・遺訓</h4>
+                            <span class="btn-badge text-[10px] px-2.5 py-0.5 rounded-full shrink-0 shadow-sm">音声遺訓</span>
+                            <h4 class="btn-title text-xs md:text-sm title-serif tracking-wide truncate">AI相木市兵衛・遺訓</h4>
                         </div>
                     </div>
-                    <span class="text-xs text-amber-950 font-black bg-amber-300 group-hover:bg-amber-200 px-3 py-1.5 rounded-xl shrink-0 transition-colors shadow-md flex items-center gap-1">
+                    <span class="btn-play-tag text-xs px-3 py-1.5 rounded-xl shrink-0 transition-colors shadow-md flex items-center gap-1">
                         再生 🎧
                     </span>
                 </div>
@@ -175,17 +202,17 @@
                     '【テーマソング】峰雄山常源寺の五百年の歴史と祈りを紡ぐテーマソング「常源寺・時を越えて」。',
                     '【伝統と未来】戦国の世から現代、そして未来へと受け継がれる先人たちの志と感謝の音色。',
                     '【心を澄まして】南相木村の豊かな自然と深き信仰の歩みに想いを馳せながらお聴きください。'
-                ], this)" class="group cursor-pointer py-3 px-4 bg-stone-900 bg-gradient-to-r from-stone-900 via-amber-950 to-amber-900 hover:from-amber-900 hover:to-stone-800 text-amber-100 rounded-2xl border-2 border-amber-600/60 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-between gap-3">
+                ], this)" class="top-audio-btn group cursor-pointer py-3.5 px-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-between gap-3">
                     <div class="flex items-center space-x-3 min-w-0 flex-1">
                         <div class="w-8 h-8 rounded-xl bg-amber-500/30 border border-amber-400/60 flex items-center justify-center shrink-0 text-amber-300 group-hover:scale-105 transition-transform">
                             <svg class="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-2v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12 0c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-2"></path></svg>
                         </div>
                         <div class="min-w-0 flex-1 flex flex-wrap items-center gap-1.5 sm:gap-2.5">
-                            <span class="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-amber-500 text-stone-950 shrink-0 shadow-sm">テーマソング</span>
-                            <h4 class="text-xs md:text-sm font-black text-amber-100 truncate title-serif tracking-wide drop-shadow-sm">常源寺・時を越えて</h4>
+                            <span class="btn-badge text-[10px] px-2.5 py-0.5 rounded-full shrink-0 shadow-sm">テーマソング</span>
+                            <h4 class="btn-title text-xs md:text-sm title-serif tracking-wide truncate">常源寺・時を越えて</h4>
                         </div>
                     </div>
-                    <span class="text-xs text-amber-950 font-black bg-amber-300 group-hover:bg-amber-200 px-3 py-1.5 rounded-xl shrink-0 transition-colors shadow-md flex items-center gap-1">
+                    <span class="btn-play-tag text-xs px-3 py-1.5 rounded-xl shrink-0 transition-colors shadow-md flex items-center gap-1">
                         再生 🎧
                     </span>
                 </div>
