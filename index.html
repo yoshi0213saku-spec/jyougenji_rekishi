@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>歴史から学ぶ常源寺 〜五百年の歴史と、未来へつなぐ祈り〜</title>
+    <title>常源寺・時を超えて 〜五百年の歴史と、未来へつなぐ祈り〜</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Noto Serif JP & Noto Sans JP -->
@@ -88,30 +88,29 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 特殊トップボタン（遺訓・テーマソング）の文字同化防止専用スタイル */
+        /* トップボタン専用のハイコントラスト視認性保障スタイル */
         .top-audio-btn {
-            background: linear-gradient(135deg, #1c1917 0%, #451a03 50%, #1c1917 100%) !important;
+            background: #fef3c7 !important;
             border: 2px solid #b45309 !important;
-            color: #ffffff !important;
+            color: #1c1917 !important;
         }
         .top-audio-btn.track-active {
-            background: linear-gradient(135deg, #451a03 0%, #78350f 50%, #451a03 100%) !important;
-            border: 2px solid #f59e0b !important;
-            box-shadow: 0 0 18px rgba(245, 158, 11, 0.45) !important;
+            background: #fde68a !important;
+            border: 2px solid #92400e !important;
+            box-shadow: 0 0 14px rgba(180, 83, 9, 0.35) !important;
         }
         .top-audio-btn .btn-title {
-            color: #ffffff !important;
+            color: #1c1917 !important;
             font-weight: 900 !important;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9) !important;
         }
         .top-audio-btn .btn-badge {
-            background-color: #d97706 !important;
+            background-color: #78350f !important;
             color: #ffffff !important;
-            font-weight: 900 !important;
+            font-weight: 700 !important;
         }
         .top-audio-btn .btn-play-tag {
-            background-color: #f59e0b !important;
-            color: #0c0a09 !important;
+            background-color: #b45309 !important;
+            color: #ffffff !important;
             font-weight: 900 !important;
         }
 
@@ -136,7 +135,7 @@
             
             <div class="space-y-3">
                 <h1 class="text-3xl md:text-5xl text-stone-900 title-serif font-black tracking-tight drop-shadow-sm">
-                    歴史から学ぶ常源寺
+                    常源寺・時を超えて
                 </h1>
                 <p class="text-base md:text-xl text-amber-900 font-bold tracking-widest pt-1 title-serif">
                     〜五百年の歴史と、未来へつなぐ祈り〜
@@ -167,29 +166,29 @@
 
                     <!-- 概要 本文 -->
                     <div class="text-sm md:text-base text-stone-700 leading-relaxed space-y-4">
-                        <p>「歴史から学ぶ常源寺 〜五百年の歴史と、未来へつなぐ祈り〜」へようこそ。</p>
+                        <p>「常源寺・時を超えて 〜五百年の歴史と、未来へつなぐ祈り〜」へようこそ。</p>
                         <p>当デジタルアーカイブは、天文十九年（1550年）に領主・相木市兵衛常喜公によって創建され、開山・節香徳忠禅師を招いて以来、四百九十年・五百年にわたり南相木村の地で人々の先祖供養と平安を支え続けてきた「峰雄山常源寺」の歴史と文化を伝えるために開設いたしました。</p>
                         <p>武田信玄公の信州先方衆として勇名をはせた相木氏の足跡、歴代住職の教え、七堂伽藍や本尊・釈迦牟ニ仏をはじめとする寺宝・仏像の記録、そして地域に伝わる寛保二年の「戌の満水」供養の歴史などを、解説音声と映像（YouTube）でお楽しみいただけます。</p>
-                        <p>遠く離れて暮らすご親族や故郷を想う皆様が、いつでも当サイトを通じて、常源寺の深き歴史と先人たちの志、そして心の拠り所としてのつながりを感じていただけることを願っています。</p>
+                        <p>遠く離れて暮らすご親族や故郷を想う皆様が、いつでも当サイトを通じて、常源寺の深き歴史と先人たちの志、商いと暮らしのつながりを感じていただけることを願っています。</p>
                         <p class="font-bold text-amber-950 pt-1">このサイトが、歴史を学び、感謝の心を深め、次の世代へ「未来への祈り」を受け継ぐ広場として末永く親しまれることを祈念いたします。</p>
                     </div>
                 </section>
 
                 <hr class="border-amber-200/60">
 
-                <!-- AI相木市兵衛・遺訓（テーマソングの上にスリムに配置） -->
+                <!-- AI相木市兵衛・遺訓 -->
                 <div onclick="playAudio('./matome_aiki_ichibei_iku.mp3', 'AI相木市兵衛・遺訓', [
                     '【開基・相木市兵衛公の遺訓】領民の平安と平和を願い、常源寺を創建した相木市兵衛常喜公の遺訓です。',
                     '【心に刻む教え】乱世の時代を力強く生き抜き、人々の絆と感謝の心を重んじた市兵衛公の深き言葉。',
                     '【未来へのメッセージ】五百年の時を超えて、現代を生きる私たちへ語りかける平和への祈りと教え。'
-                ], this)" class="top-audio-btn group cursor-pointer py-3.5 px-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-between gap-3 mb-3">
+                ], this)" class="top-audio-btn group cursor-pointer py-3.5 px-4 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-between gap-3 mb-3">
                     <div class="flex items-center space-x-3 min-w-0 flex-1">
-                        <div class="w-8 h-8 rounded-xl bg-amber-500/30 border border-amber-400/60 flex items-center justify-center shrink-0 text-amber-300 group-hover:scale-105 transition-transform">
+                        <div class="w-8 h-8 rounded-xl bg-amber-200 border border-amber-400 flex items-center justify-center shrink-0 text-amber-900 group-hover:scale-105 transition-transform">
                             <svg class="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path></svg>
                         </div>
                         <div class="min-w-0 flex-1 flex flex-wrap items-center gap-1.5 sm:gap-2.5">
                             <span class="btn-badge text-[10px] px-2.5 py-0.5 rounded-full shrink-0 shadow-sm">音声遺訓</span>
-                            <h4 class="btn-title text-xs md:text-sm title-serif tracking-wide truncate">AI相木市兵衛・遺訓</h4>
+                            <h4 class="btn-title text-xs md:text-sm title-serif tracking-wide truncate" style="color: #1c1917 !important; font-weight: 900 !important;">AI相木市兵衛・遺訓</h4>
                         </div>
                     </div>
                     <span class="btn-play-tag text-xs px-3 py-1.5 rounded-xl shrink-0 transition-colors shadow-md flex items-center gap-1">
@@ -197,19 +196,39 @@
                     </span>
                 </div>
 
-                <!-- テーマソング再生ボタン（カテゴリー上部にスリムに配置） -->
+                <!-- テーマソング再生ボタン -->
                 <div onclick="playAudio('./music_jyougenji_tokiwokoete.mp3', '常源寺・時を越えて', [
                     '【テーマソング】峰雄山常源寺の五百年の歴史と祈りを紡ぐテーマソング「常源寺・時を越えて」。',
-                    '【伝統と未来】戦国の世から現代、そして未来へと受け継がれる先人たちの志と感謝の音色。',
+                    '【伝統と未来】戦国の世から現代、自由そして未来へと受け継がれる先人たちの志と感謝の音色。',
                     '【心を澄まして】南相木村の豊かな自然と深き信仰の歩みに想いを馳せながらお聴きください。'
-                ], this)" class="top-audio-btn group cursor-pointer py-3.5 px-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-between gap-3">
+                ], this)" class="top-audio-btn group cursor-pointer py-3.5 px-4 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-between gap-3">
                     <div class="flex items-center space-x-3 min-w-0 flex-1">
-                        <div class="w-8 h-8 rounded-xl bg-amber-500/30 border border-amber-400/60 flex items-center justify-center shrink-0 text-amber-300 group-hover:scale-105 transition-transform">
+                        <div class="w-8 h-8 rounded-xl bg-amber-200 border border-amber-400 flex items-center justify-center shrink-0 text-amber-900 group-hover:scale-105 transition-transform">
                             <svg class="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-2v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12 0c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-2"></path></svg>
                         </div>
                         <div class="min-w-0 flex-1 flex flex-wrap items-center gap-1.5 sm:gap-2.5">
                             <span class="btn-badge text-[10px] px-2.5 py-0.5 rounded-full shrink-0 shadow-sm">テーマソング</span>
-                            <h4 class="btn-title text-xs md:text-sm title-serif tracking-wide truncate">常源寺・時を越えて</h4>
+                            <h4 class="btn-title text-xs md:text-sm title-serif tracking-wide truncate" style="color: #1c1917 !important; font-weight: 900 !important;">常源寺・時を越えて</h4>
+                        </div>
+                    </div>
+                    <span class="btn-play-tag text-xs px-3 py-1.5 rounded-xl shrink-0 transition-colors shadow-md flex items-center gap-1">
+                        再生 🎧
+                    </span>
+                </div>
+
+                <!-- 武田信玄の軍門に降り、村と寺を守り抜いた相木市兵衛〜 -->
+                <div onclick="playAudio('./matome_aikiichibei_yakata.mp3', '武田信玄の軍門に降り、村と寺を守り抜いた相木市兵衛〜', [
+                    '【武田信玄と相木市兵衛】乱世の信濃において武田信玄の軍門に降り、知略と英断により南相木の村と寺を守り抜いた市兵衛公の物語。',
+                    '【村と寺の守護】戦火の中で領民を助け、常源寺の礎を築いた武将・相木市兵衛常喜公の深き志。',
+                    '【未来への歴史継承】困難な時代を乗り越え、現代へつながる平和への祈りと歴史の歩みを辿ります。'
+                ], this)" class="top-audio-btn group cursor-pointer py-3.5 px-4 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-between gap-3 mt-3">
+                    <div class="flex items-center space-x-3 min-w-0 flex-1">
+                        <div class="w-8 h-8 rounded-xl bg-amber-200 border border-amber-400 flex items-center justify-center shrink-0 text-amber-900 group-hover:scale-105 transition-transform">
+                            <svg class="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path></svg>
+                        </div>
+                        <div class="min-w-0 flex-1 flex flex-wrap items-center gap-1.5 sm:gap-2.5">
+                            <span class="btn-badge text-[10px] px-2.5 py-0.5 rounded-full shrink-0 shadow-sm">音声講話</span>
+                            <h4 class="btn-title text-xs md:text-sm title-serif tracking-wide truncate" style="color: #1c1917 !important; font-weight: 900 !important;">武田信玄の軍門に降り、村と寺を守り抜いた相木市兵衛〜</h4>
                         </div>
                     </div>
                     <span class="btn-play-tag text-xs px-3 py-1.5 rounded-xl shrink-0 transition-colors shadow-md flex items-center gap-1">
@@ -225,7 +244,7 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         
-                        <!-- 1. 歴史探訪ムービー（最上部に配置） -->
+                        <!-- 1. 歴史探訪ムービー -->
                         <a href="#cat-movies" class="category-card p-4 bg-gradient-to-br from-white via-stone-50/50 to-red-50/20 rounded-2xl border border-red-200/60 hover:border-red-400 transition-all block group shadow-sm">
                             <div class="flex items-start space-x-3.5">
                                 <div class="w-10 h-10 rounded-xl bg-red-100 border border-red-200 flex items-center justify-center shrink-0 shadow-sm overflow-hidden text-red-800">
@@ -240,7 +259,7 @@
                                             <span class="text-[9px] font-semibold px-2 py-0.5 rounded-full bg-red-100 text-red-800 border border-red-200">YouTube</span>
                                         </h4>
                                     </div>
-                                    <p class="text-[11px] text-stone-500 leading-relaxed">常源寺歴史探訪対談、相木市兵衛物語、300年老松の歌など、映像で辿る南相木村と歴史の記録アーカイブ。</p>
+                                    <p class="text-[11px] text-stone-500 leading-relaxed">常源寺歴史探訪対談、相木市兵衛物語など、映像で辿る南相木村と歴史の記録アーカイブ。</p>
                                 </div>
                             </div>
                         </a>
@@ -280,7 +299,7 @@
                                             <span class="text-[9px] font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">伽藍・寺宝</span>
                                         </h4>
                                     </div>
-                                    <p class="text-[11px] text-stone-500 leading-relaxed">本堂、本尊釈迦牟尼仏、仁王門（金剛力士）、開山堂、位牌堂、寺宝館などの建築と尊像の解説。</p>
+                                    <p class="text-[11px] text-stone-500 leading-relaxed">本堂、仁王門（金剛力士）、尊像と文殊菩薩・愛染明王などの建築と尊像の解説。</p>
                                 </div>
                             </div>
                         </a>
@@ -300,7 +319,7 @@
                                             <span class="text-[9px] font-semibold px-2 py-0.5 rounded-full bg-stone-100 text-stone-800 border border-stone-200">風土・供養</span>
                                         </h4>
                                     </div>
-                                    <p class="text-[11px] text-stone-500 leading-relaxed">寛保2年の「戌の満水」と八月一日のお墓参りの風習、相木郷の歴史と四季折々の風景。</p>
+                                    <p class="text-[11px] text-stone-500 leading-relaxed">寛保2年の「戌の満水」と八月一日のお墓参りの風習、明王寺・常江院などの歴史と伝統。</p>
                                 </div>
                             </div>
                         </a>
@@ -318,14 +337,13 @@
                     <span id="playing-indicator" class="text-[10px] text-stone-500 font-medium">リストから動画・講話を選択してください</span>
                 </div>
 
-                <!-- メディア再生表示エリア（Audio / Video Dynamic Panel） -->
+                <!-- メディア再生表示エリア -->
                 <div id="media-panel" class="hidden mb-6 glass-card rounded-3xl p-5 md:p-7 bg-gradient-to-br from-stone-950 via-amber-950 to-stone-900 text-white shadow-2xl border border-amber-600/40 transition-all duration-300 scroll-mt-24">
                     
-                    <!-- 上部ヘッダー（カテゴリー情報 & タグ） -->
                     <div class="flex items-center justify-between gap-2 pb-3 mb-4 border-b border-amber-500/30">
                         <div class="flex items-center space-x-2.5 shrink-0 min-w-0">
                             <div id="media-cat-icon" class="w-8 h-8 rounded-xl bg-amber-500/20 border border-amber-400/30 flex items-center justify-center shrink-0 p-1.5 text-amber-300">
-                                <!-- JSで動的セット -->
+                                <!-- JS動的変更 -->
                             </div>
                             <div class="flex items-center gap-2 shrink-0">
                                 <span id="media-cat-name" class="text-sm md:text-base font-black text-amber-100 tracking-wide">カテゴリー</span>
@@ -334,24 +352,20 @@
                         </div>
                     </div>
 
-                    <!-- タイトル -->
                     <div class="mb-4">
                         <h3 id="media-title" class="text-base md:text-xl font-black text-amber-300 block leading-snug title-serif">作品名・タイトル</h3>
                     </div>
 
-                    <!-- メディア画面領域 -->
                     <div id="media-display-area" class="mb-5 rounded-2xl overflow-hidden bg-black/60 border border-amber-500/20">
                         <!-- Dynamic content via JS -->
                     </div>
 
-                    <!-- 音声プレイヤー本体 -->
                     <div id="audio-player-container" class="hidden mb-5 p-3.5 bg-amber-500/10 rounded-2xl border border-amber-400/30 backdrop-blur-md">
                         <audio id="main-audio-player" controls class="w-full h-10 focus:outline-none">
                             お使いのブラウザはオーディオ再生に対応していません。
                         </audio>
                     </div>
 
-                    <!-- 歴史解説・エピソードメッセージ -->
                     <div class="min-h-[76px] flex items-center py-3 px-4 bg-black/50 rounded-2xl border border-amber-400/20 backdrop-blur-md">
                         <div class="w-full">
                             <p class="text-[10px] text-amber-400 font-bold tracking-wider uppercase mb-1">Historical Commentary / 歴史の解説メモ</p>
@@ -360,10 +374,9 @@
                     </div>
                 </div>
 
-                <!-- プレイリスト一覧 -->
                 <div class="space-y-6" id="playlist">
 
-                    <!-- カテゴリー1（最上部）: 歴史探訪ムービー -->
+                    <!-- カテゴリー1: 歴史探訪ムービー -->
                     <div id="cat-movies" class="p-4 rounded-2xl bg-red-50/40 border border-red-200/80 space-y-3 scroll-mt-20">
                         <div class="flex items-center space-x-2.5 pb-2.5 border-b border-red-200">
                             <div class="w-7 h-7 rounded-lg bg-red-100 border border-red-300 flex items-center justify-center shrink-0 shadow-sm text-red-800">
@@ -376,7 +389,7 @@
                         </div>
                         
                         <div class="space-y-2.5">
-                            <!-- YouTube動画 1: 常源寺（南相木村）歴史探訪対談 -->
+                            <!-- 常源寺（南相木村）歴史探訪対談 -->
                             <a href="https://youtu.be/GR1cpj3bo3s" target="_blank" rel="noopener noreferrer" onclick="selectYouTubeItem('GR1cpj3bo3s', '常源寺（南相木村）歴史探訪対談', [
                                 '【常源寺 歴史探訪】南相木村の歴史ある名刹・常源寺にまつわる貴重な対談映像です。',
                                 '【地域と仏閣】開基・相木市兵衛公の歴史や、地域に深く根ざしてきた信仰と文化を深く語り合います。',
@@ -393,7 +406,7 @@
                                 </div>
                             </a>
 
-                            <!-- YouTube動画 2: 相木市兵衛物語 -->
+                            <!-- 相木市兵衛物語 -->
                             <a href="https://www.youtube.com/watch?v=gz16zgcfpAM" target="_blank" rel="noopener noreferrer" onclick="selectYouTubeItem('gz16zgcfpAM', '相木市兵衛物語', [
                                 '【義民・武将 相木市兵衛】南相木村の歴史に大きな名を刻んだ領主・相木市兵衛の物語。',
                                 '【領民を慈しむ心】戦国の動乱期において武功を立てつつも、領内を平和に導いた先人の志を描きます。',
@@ -410,7 +423,7 @@
                                 </div>
                             </a>
 
-                            <!-- YouTube動画 4: 常源寺に隠された歴史 -->
+                            <!-- 常源寺に隠された歴史 -->
                             <a href="https://youtu.be/mlv8os2n58I" target="_blank" rel="noopener noreferrer" onclick="selectYouTubeItem('mlv8os2n58I', '常源寺に隠された歴史', [
                                 '【秘められた歴史】常源寺に今も遺される秘話や知られざる歴史的エピソードを紹介する動画です。',
                                 '【伝承と寺宝】五百年の歴史の中で語り継がれてきた常源寺の深遠な謎と歴史のロマン。',
@@ -437,12 +450,12 @@
                             </div>
                             <div class="flex items-center gap-2">
                                 <h3 class="text-xs font-black text-amber-950 tracking-wider">常源寺の歴史と音声講話</h3>
-                                <span class="text-[9px] font-semibold px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300">音声解説・和歌・クイズ</span>
+                                <span class="text-[9px] font-semibold px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300">音声解説・クイズ</span>
                             </div>
                         </div>
 
                         <div class="space-y-2.5">
-                            <!-- クイズ 1: 常源寺歴史・文化クイズ30問 -->
+                            <!-- 常源寺歴史・文化クイズ30問 -->
                             <a href="https://yoshi0213saku-spec.github.io/jyougenji-kuiz77/" target="_blank" rel="noopener noreferrer" onclick="selectQuizItem('https://yoshi0213saku-spec.github.io/jyougenji-kuiz77/', '常源寺歴史・文化クイズ30問', [
                                 '【歴史と文化の挑戦】常源寺の五百年の歴史や仏閣・地域文化に関する30問のクイズです。',
                                 '【楽しく学ぶ】常源寺の創建、相木市兵衛公の足跡、徳忠禅師の教えなどをクイズ形式で楽しく確認できます。',
@@ -459,7 +472,7 @@
                                 </div>
                             </a>
 
-                            <!-- オーディオ 1: 常源寺創建と開基・相木市兵衛 -->
+                            <!-- 常源寺創建と開基・相木市兵衛 -->
                             <div onclick="playAudio('./matome_jyougenji_saiken_kaiki.mp3', '常源寺創建と開基・相木市兵衛', [
                                 '【常源寺の創建】天文19年（1550年）、田口城主となった相木市兵衛常喜公が領民の先祖供養のために開基となり創建されました。',
                                 '【開基・相木常喜公】武田晴信に仕え信州先方衆として活躍。常源寺へ現在の中島の館跡を含む広大な土地を寄進しました。',
@@ -474,7 +487,7 @@
                                 </div>
                             </div>
 
-                            <!-- オーディオ 2: 開山・節香徳忠禅師と五創の教え -->
+                            <!-- 開山・節香徳忠禅師と五創の教え -->
                             <div onclick="playAudio('./matome_kaizan_sekkan_tokutyu.mp3', '開山・節香徳忠禅師と五創の教え', [
                                 '【開山・徳忠禅師】前山城主・伴野光利の子として誕生。生死を超越した修行を重ね、関東一円に高僧としてその名を届かせました。',
                                 '【貞祥寺と常源寺】大永元年に貞祥寺を開山後、相木常喜公の請願を受け、常源寺の開山となられました。',
@@ -489,15 +502,15 @@
                                 </div>
                             </div>
 
-                            <!-- オーディオ 3: ご本尊釈迦牟尼仏と七堂伽藍 -->
-                            <div onclick="playAudio('./matome_gohonzon_syakunibutu.mp3', 'ご本尊釈迦牟尼仏と七堂伽藍', [
-                                '【本尊・釈迦牟尼仏】常源寺の礼拝の中心であり、四苦（生老病死）から人々を救う教主釈迦如来を祀ります。脇仏は文殊・普賢両菩薩。',
+                            <!-- ご本尊釈迦牟ニ仏と七堂伽藍 -->
+                            <div onclick="playAudio('./matome_gohonzon_syakunibutu.mp3', 'ご本尊釈迦牟ニ仏と七堂伽藍', [
+                                '【本尊・釈迦牟ニ仏】常源寺の礼拝の中心であり、四苦（生老病死）から人々を救う教主釈迦如来を祀ります。脇仏は文殊・普賢両菩薩。',
                                 '【七堂伽藍】本堂、山門、衆寮、庫裡（方丈）、位牌堂、鐘楼、経蔵の伽藍を整え、人々の心の糧となってきました。',
                                 '【仁王門の教え】山門に立つ金剛力士（仁王様）は欲望や迷いを打ちくだき、素直な心で仏の教えを受けるよう示しています。'
                             ], this)" class="group cursor-pointer p-3.5 rounded-xl bg-white/90 border border-amber-200/80 hover:border-amber-400 hover:bg-white hover:shadow-md transition-all duration-300">
                                 <div class="flex items-center justify-between">
                                     <div>
-                                        <h4 class="text-sm font-bold text-stone-800 group-hover:text-amber-800">ご本尊釈迦牟尼仏と七堂伽藍</h4>
+                                        <h4 class="text-sm font-bold text-stone-800 group-hover:text-amber-800">ご本尊釈迦牟ニ仏と七堂伽藍</h4>
                                         <p class="text-[10px] text-amber-700 font-medium mt-0.5">🎵 音声解説 • お寺の配置と仏像の意味</p>
                                     </div>
                                     <span class="text-xs text-amber-800 font-bold bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200">聴く 🎧</span>
@@ -534,7 +547,7 @@
                                 </div>
                             </div>
 
-                            <!-- 金剛力士（仁王様）と山門 -->
+                            <!-- 金剛力士（仁王様）と山門の教え -->
                             <div onclick="playAudio('./matome_kongourikishi_sanmon.mp3', '金剛力士（仁王様）と山門の教え', [
                                 '【金剛力士の守護】山門の両側で寺域を守る仁王様。一切の悪や欲望を退け、清らかな心でお参りするよう導いています。',
                                 '【三解脱の門】禅宗寺院において山門は「三門」とも呼ばれ、執着を離れ静かな心を取り戻す聖域への入り口です。'
@@ -563,7 +576,7 @@
                         </div>
 
                         <div class="space-y-2.5">
-                            <!-- 古い寺院と明王寺・常江院の歴史 -->
+                            <!-- 古い寺院（明王寺・常江院）の歴史 -->
                             <div onclick="playAudio('./matome_myouji_jyoukouin.mp3', '古い寺院（明王寺・常江院）の歴史', [
                                 '【常源寺以前の寺院】南北朝時代の明王寺や、相木常喜公の父・依田常栄公が建立した常江院浄光寺。',
                                 '【歴史の遷り変わり】古い石塔や古文書（安養寺文書）に残された記録から、南相木村における信仰の変遷を辿ります。'
@@ -603,11 +616,11 @@
 
         <!-- フッター -->
         <footer class="mt-12 text-center text-xs text-stone-500 space-y-2 border-t border-amber-200/50 pt-8">
-            <p class="title-serif text-amber-950 font-bold text-sm">歴史から学ぶ常源寺 〜五百年の歴史と、未来へつなぐ祈り〜</p>
+            <p class="title-serif text-amber-950 font-bold text-sm">常源寺・時を超えて 〜五百年の歴史と、未来へつなぐ祈り〜</p>
             <p class="text-[11px] text-stone-600">南相木村 峰雄山常源寺 デジタルアーカイブス</p>
             <div class="pt-2 text-[11px] text-stone-700 space-y-1 font-medium">
                 <p><span class="font-bold text-amber-900">開設者：</span>中島 義健</p>
-                <p><span class="font-bold text-amber-900">お問い合わせ（Gmail）：</span><a href="mailto:yoshi0213.saku@gmail.com" class="underline hover:text-amber-800 transition-colors">yoshi0213,saku@gmail.com</a></p>
+                <p><span class="font-bold text-amber-900">お問い合わせ（Gmail）：</span><a href="mailto:yoshi0213.saku@gmail.com" class="underline hover:text-amber-800 transition-colors">yoshi0213.saku@gmail.com</a></p>
             </div>
             <p class="text-[10px] text-stone-400 pt-2">© Minamiaiki Jogenji Temple Archives. All Rights Reserved.</p>
         </footer>
@@ -618,7 +631,7 @@
         let currentEpisodeInterval = null;
 
         function clearActiveStates() {
-            document.querySelectorAll('#playlist .track-active').forEach(el => {
+            document.querySelectorAll('#playlist .track-active, .top-audio-btn.track-active').forEach(el => {
                 el.classList.remove('track-active');
             });
         }
