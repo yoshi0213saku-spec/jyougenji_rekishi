@@ -175,7 +175,7 @@
                         </div>
 
                         <div class="relative overflow-hidden rounded-2xl border border-amber-200/80 shadow-md bg-stone-900 aspect-[16/10] sm:aspect-[16/9]">
-                            <img id="slider-image" src="./gazo1_jougenji_1.png" alt="常源寺 1" class="w-full h-full object-cover transition-opacity duration-300" onerror="this.onerror=null; this.src='https://placehold.co/800x450/292524/fef3c7?text=Jogenji+Temple+1';">
+                            <img id="slider-image" src="./gazo_jyougenji_1.png" alt="常源寺 1" class="w-full h-full object-cover transition-opacity duration-300" onerror="this.onerror=null; this.src='https://placehold.co/800x450/292524/fef3c7?text=Jogenji+Temple+1';">
                         </div>
 
                         <!-- 画像の案内（枠外下の中央に配置） -->
@@ -707,24 +707,24 @@
 
         // 常源寺スライダー画像のファイルリスト (1〜18枚)
         const sliderImages = [
-            './gazo1_jougenji_1.png',
-            './gazo1_jougenji_2.png',
-            './gazo1_jougenji_3.png',
-            './gazo1_jougenji_4.png',
-            './gazo1_jougenji_5.png',
-            './gazo1_jougenji_6.png',
-            './gazo1_jougenji_7.png',
-            './gazo1_jougenji_8.png',
-            './gazo1_jougenji_9.png',
-            './gazo1_jougenji_10.png',
-            './gazo1_jougenji_11.png',
-            './gazo1_jougenji_12.png',
-            './gazo1_jougenji_13.png',
-            './gazo1_jougenji_14.png',
-            './gazo1_jougenji_15.png',
-            './gazo1_jougenji_16.png',
-            './gazo1_jougenji_17.png',
-            './gazo1_jougenji_18.png'
+            './gazo_jyougenji_1.png',
+            './gazo_jyougenji_2.png',
+            './gazo_jyougenji_3.png',
+            './gazo_jyougenji_4.png',
+            './gazo_jyougenji_5.png',
+            './gazo_jyougenji_6.png',
+            './gazo_jyougenji_7.png',
+            './gazo_jyougenji_8.png',
+            './gazo_jyougenji_9.png',
+            './gazo_jyougenji_10.png',
+            './gazo_jyougenji_11.png',
+            './gazo_jyougenji_12.png',
+            './gazo_jyougenji_13.png',
+            './gazo_jyougenji_14.png',
+            './gazo_jyougenji_15.png',
+            './gazo_jyougenji_16.png',
+            './gazo_jyougenji_17.png',
+            './gazo_jyougenji_18.png'
         ];
         let currentSlideIndex = 0;
         let slideTimer = null;
@@ -744,16 +744,7 @@
                 // 画像読み込みエラー時のフォールバック処理
                 imgEl.onerror = function() {
                     this.onerror = null;
-                    // 1枚目で gazo_jyougenji_1.png の表記になっている場合への配慮
-                    if (currentSlideIndex === 0 && !this.src.includes('gazo_jyougenji_1.png')) {
-                        this.src = './gazo_jyougenji_1.png';
-                        this.onerror = function() {
-                            this.onerror = null;
-                            this.src = `https://placehold.co/800x450/292524/fef3c7?text=Jogenji+Temple+${currentSlideIndex + 1}`;
-                        };
-                    } else {
-                        this.src = `https://placehold.co/800x450/292524/fef3c7?text=Jogenji+Temple+${currentSlideIndex + 1}`;
-                    }
+                    this.src = `https://placehold.co/800x450/292524/fef3c7?text=Jogenji+Temple+${currentSlideIndex + 1}`;
                 };
                 imgEl.style.opacity = '1';
             }, 150);
