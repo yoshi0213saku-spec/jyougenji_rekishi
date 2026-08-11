@@ -159,9 +159,44 @@
                         戦国の世から五百年。<br class="hidden sm:inline">地域と人々の平安を見守り続ける、歴史と信仰の歩み。
                     </h3>
 
-                    <!-- 常源寺全景 画像 -->
-                    <div class="my-5 overflow-hidden rounded-2xl border border-amber-200/80 shadow-md">
-                        <img src="./gazo_jyougenji_1.png" alt="常源寺全景" class="w-full h-auto object-cover max-h-[420px] transition-transform duration-500 hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/800x450/292524/fef3c7?text=%E5%B8%B8%E6%BA%90%E5%AF%BA%E5%85%A8%E6%99%AF';">
+                    <!-- 常源寺画像スライダー -->
+                    <div class="my-6">
+                        <!-- BGM再生ボタン（枠外の上部中央に配置） -->
+                        <div class="flex justify-center mb-3">
+                            <button type="button" onclick="playAudio('./music_tokiwo_koeru_inori.mp3', '常源寺 〜時を越える祈り〜', [
+                                '【BGM】「常源寺 〜時を越える祈り〜」の深く澄み渡る音色。',
+                                '【祈りの旅路】五百年の歴史と南相木村の美しき静寂に包まれるバックグラウンドミュージック。',
+                                '【心静かに】スライド画像や解説とともに常源寺の歩みに想いを馳せてお聴きください。'
+                            ], this)" class="top-audio-btn group cursor-pointer py-2 px-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-2 border border-amber-300 bg-amber-100/90 hover:bg-amber-200">
+                                <span class="w-6 h-6 rounded-full bg-amber-700 text-white flex items-center justify-center text-xs shadow-sm">🎵</span>
+                                <span class="text-xs md:text-sm font-black text-amber-950 title-serif">BGM再生：常源寺 〜時を越える祈り〜</span>
+                                <span class="btn-play-tag text-[10px] md:text-xs px-2.5 py-0.5 rounded-full shrink-0 shadow-sm font-bold bg-amber-700 text-white">再生 🎧</span>
+                            </button>
+                        </div>
+
+                        <div class="relative overflow-hidden rounded-2xl border border-amber-200/80 shadow-md bg-stone-900 aspect-[16/10] sm:aspect-[16/9]">
+                            <img id="slider-image" src="./gazo1_jougenji_1.png" alt="常源寺 1" class="w-full h-full object-cover transition-opacity duration-300" onerror="this.onerror=null; this.src='https://placehold.co/800x450/292524/fef3c7?text=%E5%B8%B8%E6%BA%90%E5%AF%BA%E7%94%BB%E5%83%8F+1';">
+                        </div>
+
+                        <!-- 画像の案内（枠外下の中央に配置） -->
+                        <div class="flex flex-col items-center justify-center mt-3.5 gap-2.5">
+                            <div class="flex items-center space-x-3">
+                                <button type="button" onclick="prevSlide()" class="p-2 rounded-full bg-amber-100/90 border border-amber-300 text-amber-950 hover:bg-amber-200 transition-all shadow-sm active:scale-95 flex items-center justify-center" aria-label="前の画像">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+                                </button>
+                                <span id="slider-counter" class="text-xs md:text-sm font-black text-amber-950 title-serif px-3.5 py-1 bg-amber-100/80 rounded-full border border-amber-300/80 shadow-sm min-w-[70px] text-center">
+                                    1 / 18
+                                </span>
+                                <button type="button" onclick="nextSlide()" class="p-2 rounded-full bg-amber-100/90 border border-amber-300 text-amber-950 hover:bg-amber-200 transition-all shadow-sm active:scale-95 flex items-center justify-center" aria-label="次の画像">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                                </button>
+                            </div>
+
+                            <!-- スライドドットインジケーター -->
+                            <div id="slider-dots" class="flex items-center space-x-1.5 max-w-full overflow-x-auto py-1 px-3 bg-stone-100/80 rounded-full border border-amber-200/60">
+                                <!-- JSで動的生成 -->
+                            </div>
+                        </div>
                     </div>
 
                     <!-- 概要 本文 -->
@@ -669,6 +704,86 @@
 
     <script>
         let currentEpisodeInterval = null;
+
+        // 常源寺スライダーの定義 (1〜18)
+        const sliderImages = Array.from({ length: 18 }, (_, i) => `./gazo1_jougenji_${i + 1}.png`);
+        let currentSlideIndex = 0;
+        let slideTimer = null;
+
+        function updateSlider() {
+            const imgEl = document.getElementById('slider-image');
+            const counterEl = document.getElementById('slider-counter');
+            
+            if (!imgEl || !counterEl) return;
+
+            imgEl.style.opacity = '0.3';
+            setTimeout(() => {
+                imgEl.src = sliderImages[currentSlideIndex];
+                imgEl.alt = `常源寺 ${currentSlideIndex + 1}`;
+                imgEl.onerror = function() {
+                    this.onerror = null;
+                    this.src = `https://placehold.co/800x450/292524/fef3c7?text=%E5%B8%B8%E6%BA%90%E5%AF%BA%E7%94%BB%E5%83%8F+${currentSlideIndex + 1}`;
+                };
+                imgEl.style.opacity = '1';
+            }, 150);
+
+            counterEl.textContent = `${currentSlideIndex + 1} / ${sliderImages.length}`;
+
+            // ドットの更新
+            const dots = document.querySelectorAll('.slider-dot');
+            dots.forEach((dot, idx) => {
+                if (idx === currentSlideIndex) {
+                    dot.className = 'slider-dot w-3 h-2 rounded-full bg-amber-700 transition-all duration-300';
+                } else {
+                    dot.className = 'slider-dot w-2 h-2 rounded-full bg-amber-300/70 hover:bg-amber-500 transition-all duration-300 cursor-pointer';
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % sliderImages.length;
+            updateSlider();
+            resetSlideTimer();
+        }
+
+        function prevSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + sliderImages.length) % sliderImages.length;
+            updateSlider();
+            resetSlideTimer();
+        }
+
+        function goToSlide(index) {
+            currentSlideIndex = index;
+            updateSlider();
+            resetSlideTimer();
+        }
+
+        function resetSlideTimer() {
+            if (slideTimer) clearInterval(slideTimer);
+            slideTimer = setInterval(() => {
+                currentSlideIndex = (currentSlideIndex + 1) % sliderImages.length;
+                updateSlider();
+            }, 5000);
+        }
+
+        function initSliderDots() {
+            const container = document.getElementById('slider-dots');
+            if (!container) return;
+            container.innerHTML = '';
+            sliderImages.forEach((_, idx) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.ariaLabel = `画像 ${idx + 1} へ移動`;
+                btn.onclick = () => goToSlide(idx);
+                container.appendChild(btn);
+            });
+            updateSlider();
+            resetSlideTimer();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initSliderDots();
+        });
 
         function clearActiveStates() {
             document.querySelectorAll('#playlist .track-active, .top-audio-btn.track-active').forEach(el => {
