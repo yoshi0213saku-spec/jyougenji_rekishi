@@ -693,6 +693,16 @@
         <footer class="mt-12 text-center text-xs text-stone-500 space-y-2 border-t border-amber-200/50 pt-8">
             <p class="title-serif text-amber-950 font-bold text-sm">常源寺・時を超えて 〜五百年の歴史と、未来へつなぐ祈り〜</p>
             <p class="text-[11px] text-stone-600">南相木村 峰雄山常源寺 デジタルアーカイブス</p>
+
+            <!-- アクセスカウンター -->
+            <div class="pt-2 pb-1 flex justify-center">
+                <div class="inline-flex items-center space-x-2 bg-stone-900 text-amber-300 px-4 py-1.5 rounded-xl border border-amber-500/40 shadow-inner font-mono">
+                    <span class="text-[10px] text-stone-400 font-sans tracking-wider">通算閲覧数</span>
+                    <span id="access-counter" class="font-bold text-sm md:text-base text-amber-200 tracking-widest">000150</span>
+                    <span class="text-[10px] text-stone-400 font-sans">回</span>
+                </div>
+            </div>
+
             <div class="pt-2 text-[11px] text-stone-700 space-y-1 font-medium">
                 <p><span class="font-bold text-amber-900">開設者：</span>中島 義健</p>
                 <p><span class="font-bold text-amber-900">お問い合わせ（Gmail）：</span><a href="mailto:yoshi0213.saku@gmail.com" class="underline hover:text-amber-800 transition-colors">yoshi0213.saku@gmail.com</a></p>
@@ -804,8 +814,28 @@
             resetSlideTimer();
         }
 
+        function initAccessCounter() {
+            const STORAGE_KEY = 'jogenji_access_count';
+            const BASE_COUNT = 150;
+            
+            let count = localStorage.getItem(STORAGE_KEY);
+            if (!count) {
+                count = BASE_COUNT + 1;
+            } else {
+                count = parseInt(count, 10) + 1;
+            }
+            
+            localStorage.setItem(STORAGE_KEY, count);
+            
+            const counterEl = document.getElementById('access-counter');
+            if (counterEl) {
+                counterEl.textContent = String(count).padStart(6, '0');
+            }
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
             initSliderDots();
+            initAccessCounter();
         });
 
         function setEpisodes(episodes) {
