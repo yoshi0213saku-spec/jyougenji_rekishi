@@ -11,10 +11,10 @@
     
     <style>
         :root {
-            --bg-color: #fcfaf7;
+            --bg-color: #fdfbf7;
             --accent-gold: #b45309;
             --accent-vermilion: #991b1b;
-            --accent-dark: #292524;
+            --accent-dark: #1c1917;
             --text-main: #1c1917;
         }
 
@@ -26,8 +26,8 @@
             font-family: 'Noto Sans JP', sans-serif;
             background-color: var(--bg-color);
             background-image: 
-                radial-gradient(at 10% 10%, rgba(180, 83, 9, 0.05) 0px, transparent 50%),
-                radial-gradient(at 90% 90%, rgba(153, 27, 27, 0.04) 0px, transparent 50%),
+                radial-gradient(at 10% 10%, rgba(180, 83, 9, 0.04) 0px, transparent 50%),
+                radial-gradient(at 90% 90%, rgba(153, 27, 27, 0.03) 0px, transparent 50%),
                 radial-gradient(at 50% 50%, rgba(120, 53, 15, 0.02) 0px, transparent 100%);
             background-attachment: fixed;
             color: var(--text-main);
@@ -40,21 +40,21 @@
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.94);
+            background: rgba(255, 255, 255, 0.96);
             backdrop-filter: blur(16px);
-            border: 1px solid rgba(217, 180, 140, 0.3);
-            box-shadow: 0 10px 30px -5px rgba(41, 37, 36, 0.05);
+            border: 1px solid rgba(217, 180, 140, 0.35);
+            box-shadow: 0 10px 30px -5px rgba(41, 37, 36, 0.06);
         }
 
         .category-card {
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
 
         .category-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 14px 28px -6px rgba(180, 83, 9, 0.18);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px -6px rgba(180, 83, 9, 0.15);
         }
 
         .category-card:hover .cat-icon {
@@ -65,9 +65,46 @@
             transition: transform 0.4s ease;
         }
 
+        /* アクションボタンのハイコントラスト固定スタイル */
+        .top-audio-btn {
+            background: #fef3c7 !important;
+            border: 2px solid #b45309 !important;
+            color: #1c1917 !important;
+            transition: all 0.25s ease;
+        }
+        
+        .top-audio-btn:hover {
+            background: #fde68a !important;
+            border-color: #92400e !important;
+            box-shadow: 0 4px 14px rgba(180, 83, 9, 0.2) !important;
+        }
+
+        .top-audio-btn.track-active {
+            background: #fde68a !important;
+            border: 2px solid #78350f !important;
+            box-shadow: 0 0 0 3px rgba(180, 83, 9, 0.3), 0 6px 18px rgba(180, 83, 9, 0.25) !important;
+        }
+
+        .top-audio-btn .btn-title {
+            color: #1c1917 !important;
+            font-weight: 900 !important;
+        }
+
+        .top-audio-btn .btn-badge {
+            background-color: #78350f !important;
+            color: #ffffff !important;
+            font-weight: 800 !important;
+        }
+
+        .top-audio-btn .btn-play-tag {
+            background-color: #b45309 !important;
+            color: #ffffff !important;
+            font-weight: 900 !important;
+        }
+
         .track-active {
-            border-left: 4px solid var(--accent-gold);
-            background: #fffbe2 !important;
+            border-left: 4px solid var(--accent-gold) !important;
+            background: #fef3c7 !important;
         }
 
         .fade-in {
@@ -75,7 +112,7 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(16px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -86,32 +123,6 @@
         @keyframes textFadeIn {
             from { opacity: 0; transform: translateY(6px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* トップボタン専用のハイコントラスト視認性保障スタイル */
-        .top-audio-btn {
-            background: #fef3c7 !important;
-            border: 2px solid #b45309 !important;
-            color: #1c1917 !important;
-        }
-        .top-audio-btn.track-active {
-            background: #fde68a !important;
-            border: 2px solid #92400e !important;
-            box-shadow: 0 0 14px rgba(180, 83, 9, 0.35) !important;
-        }
-        .top-audio-btn .btn-title {
-            color: #1c1917 !important;
-            font-weight: 900 !important;
-        }
-        .top-audio-btn .btn-badge {
-            background-color: #78350f !important;
-            color: #ffffff !important;
-            font-weight: 700 !important;
-        }
-        .top-audio-btn .btn-play-tag {
-            background-color: #b45309 !important;
-            color: #ffffff !important;
-            font-weight: 900 !important;
         }
 
         ::-webkit-scrollbar { width: 6px; }
@@ -125,7 +136,7 @@
 
         <!-- ヘッダー -->
         <header class="text-center mb-10 fade-in" style="animation-delay: 0.05s;">
-            <div class="inline-flex items-center space-x-2 bg-amber-100/70 px-4 py-1.5 rounded-full mb-5 border border-amber-300/60 shadow-sm">
+            <div class="inline-flex items-center space-x-2 bg-amber-100/80 px-4 py-1.5 rounded-full mb-4 border border-amber-300/80 shadow-sm">
                 <span class="relative flex h-2.5 w-2.5">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-700"></span>
@@ -133,7 +144,7 @@
                 <span class="text-[11px] font-black text-amber-950 tracking-[0.2em] uppercase">Minamiaiki Jogenji Temple Archive</span>
             </div>
             
-            <div class="space-y-3">
+            <div class="space-y-2">
                 <h1 class="text-3xl md:text-5xl text-stone-900 title-serif font-black tracking-tight drop-shadow-sm">
                     常源寺・時を超えて
                 </h1>
@@ -147,15 +158,15 @@
         <div class="space-y-8 fade-in" style="animation-delay: 0.1s;">
             
             <!-- アーカイブ概要セクション -->
-            <div class="glass-card rounded-3xl p-6 md:p-8 space-y-6 border border-amber-200/70 bg-gradient-to-br from-white via-amber-50/20 to-orange-50/10 shadow-lg">
+            <div class="glass-card rounded-3xl p-5 md:p-8 space-y-6 border border-amber-200/80 bg-gradient-to-br from-white via-amber-50/20 to-orange-50/10 shadow-lg">
                 <section>
                     <div class="flex items-center justify-between mb-3">
-                        <h2 class="text-xs font-bold text-amber-800 uppercase tracking-[0.3em]">Temple Overview</h2>
-                        <span class="text-[10px] text-amber-900/80 font-semibold bg-amber-100/80 px-2.5 py-0.5 rounded-full border border-amber-200">南相木村 峰雄山常源寺</span>
+                        <h2 class="text-xs font-bold text-amber-900 uppercase tracking-[0.3em]">Temple Overview</h2>
+                        <span class="text-[10px] text-amber-950 font-semibold bg-amber-100 px-2.5 py-0.5 rounded-full border border-amber-300">南相木村 峰雄山常源寺</span>
                     </div>
                     
                     <!-- 概要 タイトル -->
-                    <h3 class="text-base md:text-xl font-bold text-stone-900 leading-snug mb-4 title-serif border-l-4 border-amber-600 pl-3">
+                    <h3 class="text-base md:text-xl font-bold text-stone-900 leading-snug mb-5 title-serif border-l-4 border-amber-600 pl-3">
                         戦国の世から五百年。<br class="hidden sm:inline">地域と人々の平安を見守り続ける、歴史と信仰の歩み。
                     </h3>
 
@@ -167,40 +178,41 @@
                                 '【BGM】「常源寺 〜時を越える祈り〜」の深く澄み渡る音色。',
                                 '【祈りの旅路】五百年の歴史と南相木村の美しき静寂に包まれるバックグラウンドミュージック。',
                                 '【心静かに】スライド画像や解説とともに常源寺の歩みに想いを馳せてお聴きください。'
-                            ], this, true)" class="top-audio-btn group cursor-pointer py-2 px-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center space-x-2 border border-amber-300 bg-amber-100/90 hover:bg-amber-200">
+                            ], this, true)" class="top-audio-btn cursor-pointer py-2 px-4 rounded-full shadow-md hover:shadow-lg flex items-center space-x-2">
                                 <span class="w-6 h-6 rounded-full bg-amber-700 text-white flex items-center justify-center text-xs shadow-sm">🎵</span>
-                                <span class="text-xs md:text-sm font-black text-amber-950 title-serif">BGM再生：常源寺 〜時を越える祈り〜</span>
-                                <span class="btn-play-tag text-[10px] md:text-xs px-2.5 py-0.5 rounded-full shrink-0 shadow-sm font-bold bg-amber-700 text-white">再生 🎧</span>
+                                <span class="btn-title text-xs md:text-sm font-black title-serif">BGM再生：常源寺 〜時を越える祈り〜</span>
+                                <span class="btn-play-tag text-[10px] md:text-xs px-2.5 py-0.5 rounded-full shrink-0 shadow-sm font-bold">再生 🎧</span>
                             </button>
                         </div>
 
-                        <div class="relative overflow-hidden rounded-2xl border border-amber-200/80 shadow-md bg-stone-900 aspect-[16/10] sm:aspect-[16/9]">
+                        <!-- スライダーメイン表示部 -->
+                        <div class="relative overflow-hidden rounded-2xl border border-amber-300/80 shadow-md bg-stone-900 aspect-[16/10] sm:aspect-[16/9]">
                             <img id="slider-image" src="./gazo_jyougenji_1.png" alt="常源寺 1" class="w-full h-full object-cover transition-opacity duration-300" onerror="this.onerror=null; this.src='https://placehold.co/800x450/292524/fef3c7?text=Jogenji+Temple+1';">
                         </div>
 
                         <!-- 画像の案内（枠外下の中央に配置） -->
                         <div class="flex flex-col items-center justify-center mt-3.5 gap-2.5">
                             <div class="flex items-center space-x-3">
-                                <button type="button" onclick="prevSlide()" class="p-2 rounded-full bg-amber-100/90 border border-amber-300 text-amber-950 hover:bg-amber-200 transition-all shadow-sm active:scale-95 flex items-center justify-center" aria-label="前の画像">
+                                <button type="button" onclick="prevSlide()" class="p-2 rounded-full bg-amber-100 border border-amber-300 text-amber-950 hover:bg-amber-200 transition-all shadow-sm active:scale-95 flex items-center justify-center" aria-label="前の画像">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
                                 </button>
-                                <span id="slider-counter" class="text-xs md:text-sm font-black text-amber-950 title-serif px-3.5 py-1 bg-amber-100/80 rounded-full border border-amber-300/80 shadow-sm min-w-[70px] text-center">
+                                <span id="slider-counter" class="text-xs md:text-sm font-black text-amber-950 title-serif px-3.5 py-1 bg-amber-100/90 rounded-full border border-amber-300 shadow-sm min-w-[75px] text-center">
                                     1 / 18
                                 </span>
-                                <button type="button" onclick="nextSlide()" class="p-2 rounded-full bg-amber-100/90 border border-amber-300 text-amber-950 hover:bg-amber-200 transition-all shadow-sm active:scale-95 flex items-center justify-center" aria-label="次の画像">
+                                <button type="button" onclick="nextSlide()" class="p-2 rounded-full bg-amber-100 border border-amber-300 text-amber-950 hover:bg-amber-200 transition-all shadow-sm active:scale-95 flex items-center justify-center" aria-label="次の画像">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
                                 </button>
                             </div>
 
                             <!-- スライドドットインジケーター -->
-                            <div id="slider-dots" class="flex items-center space-x-1.5 max-w-full overflow-x-auto py-1 px-3 bg-stone-100/80 rounded-full border border-amber-200/60">
-                                <!-- JSで動的生成 -->
+                            <div id="slider-dots" class="flex items-center space-x-1.5 max-w-full overflow-x-auto py-1 px-3 bg-stone-100/90 rounded-full border border-amber-200">
+                                <!-- JS動的生成 -->
                             </div>
                         </div>
                     </div>
 
                     <!-- 概要 本文 -->
-                    <div class="text-sm md:text-base text-stone-700 leading-relaxed space-y-4">
+                    <div class="text-sm md:text-base text-stone-700 leading-relaxed space-y-4 pt-2">
                         <p>「常源寺・時を超えて 〜五百年の歴史と、未来へつなぐ祈り〜」へようこそ。</p>
                         <p>当デジタルアーカイブは、天文十九年（1550年）に領主・相木市兵衛常喜公によって創建され、開山・節香徳忠禅師を招いて以来、四百九十年・五百年にわたり南相木村の地で人々の先祖供養と平安を支え続けてきた「峰雄山常源寺」の歴史と文化を伝えるために開設いたしました。</p>
                         <p>武田信玄公の信州先方衆として勇名をはせた相木氏の足跡、歴代住職の教え、七堂伽藍や本尊・釈迦牟ニ仏をはじめとする寺宝・仏像の記録、そして地域に伝わる寛保二年の「戌の満水」供養の歴史などを、解説音声と映像（YouTube）でお楽しみいただけます。</p>
@@ -209,125 +221,130 @@
                     </div>
                 </section>
 
-                <hr class="border-amber-200/60">
+                <hr class="border-amber-200/80">
 
-                <!-- AI相木市兵衛・遺訓 -->
-                <div onclick="playAudio('./matome_aiki_ichibei_iku.mp3', 'AI相木市兵衛・遺訓', [
-                    '【開基・相木市兵衛公の遺訓】領民の平安と平和を願い、常源寺を創建した相木市兵衛常喜公の遺訓です。',
-                    '【心に刻む教え】乱世の時代を力強く生き抜き、人々の絆と感謝の心を重んじた市兵衛公の深き言葉。',
-                    '【未来へのメッセージ】五百年の時を超えて、現代を生きる私たちへ語りかける平和への祈りと教え。'
-                ], this)" class="top-audio-btn group cursor-pointer py-3.5 px-4 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-between gap-3 mb-3">
-                    <div class="flex items-center space-x-3 min-w-0 flex-1">
-                        <div class="w-8 h-8 rounded-xl bg-amber-200 border border-amber-400 flex items-center justify-center shrink-0 text-amber-900 group-hover:scale-105 transition-transform">
-                            <svg class="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path></svg>
+                <!-- 1. AI相木市兵衛・遺訓 -->
+                <div class="space-y-1.5">
+                    <p class="text-xs md:text-sm font-bold text-amber-950 pl-1 leading-relaxed flex items-center gap-1.5">
+                        <span class="text-amber-700">❖</span>
+                        <span>領民の平安と平和を願い、常源寺を創建した相木市兵衛常喜公の遺訓です。</span>
+                    </p>
+                    <div onclick="playAudio('./matome_aiki_ichibei_iku.mp3', 'AI相木市兵衛・遺訓', [
+                        '【開基・相木市兵衛公の遺訓】領民の平安と平和を願い、常源寺を創建した相木市兵衛常喜公の遺訓です。',
+                        '【心に刻む教え】乱世の時代を力強く生き抜き、人々の絆と感謝の心を重んじた市兵衛公の深き言葉。',
+                        '【未来へのメッセージ】五百年の時を超えて、現代を生きる私たちへ語りかける平和への祈りと教え。'
+                    ], this)" class="top-audio-btn cursor-pointer py-3.5 px-4 rounded-2xl shadow-md flex items-center justify-between gap-3">
+                        <div class="flex items-center space-x-3 min-w-0 flex-1">
+                            <div class="w-8 h-8 rounded-xl bg-amber-200 border border-amber-400 flex items-center justify-center shrink-0 text-amber-900">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path></svg>
+                            </div>
+                            <div class="min-w-0 flex-1 flex flex-wrap items-center gap-2">
+                                <span class="btn-badge text-[10px] px-2.5 py-0.5 rounded-full shrink-0 shadow-sm">音声遺訓</span>
+                                <h4 class="btn-title text-xs md:text-sm title-serif tracking-wide truncate">AI相木市兵衛・遺訓</h4>
+                            </div>
                         </div>
-                        <div class="min-w-0 flex-1 flex flex-wrap items-center gap-1.5 sm:gap-2.5">
-                            <span class="btn-badge text-[10px] px-2.5 py-0.5 rounded-full shrink-0 shadow-sm">音声遺訓</span>
-                            <h4 class="btn-title text-xs md:text-sm title-serif tracking-wide truncate" style="color: #1c1917 !important; font-weight: 900 !important;">AI相木市兵衛・遺訓</h4>
-                        </div>
+                        <span class="btn-play-tag text-xs px-3 py-1.5 rounded-xl shrink-0 shadow-md">再生 🎧</span>
                     </div>
-                    <span class="btn-play-tag text-xs px-3 py-1.5 rounded-xl shrink-0 transition-colors shadow-md flex items-center gap-1">
-                        再生 🎧
-                    </span>
                 </div>
 
-                <!-- テーマソング再生ボタン -->
-                <div onclick="playAudio('./music_jyougenji_tokiwokoete.mp3', '常源寺・時を越えて', [
-                    '【テーマソング】峰雄山常源寺の五百年の歴史と祈りを紡ぐテーマソング「常源寺・時を越えて」。',
-                    '【伝統と未来】戦国の世から現代、自由そして未来へと受け継がれる先人たちの志と感謝の音色。',
-                    '【心を澄まして】南相木村の豊かな自然と深き信仰の歩みに想いを馳せながらお聴きください。'
-                ], this)" class="top-audio-btn group cursor-pointer py-3.5 px-4 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-between gap-3">
-                    <div class="flex items-center space-x-3 min-w-0 flex-1">
-                        <div class="w-8 h-8 rounded-xl bg-amber-200 border border-amber-400 flex items-center justify-center shrink-0 text-amber-900 group-hover:scale-105 transition-transform">
-                            <svg class="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-2v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12 0c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-2"></path></svg>
+                <!-- 2. テーマソング 常源寺・時を越えて -->
+                <div class="space-y-1.5 pt-2">
+                    <p class="text-xs md:text-sm font-bold text-amber-950 pl-1 leading-relaxed flex items-center gap-1.5">
+                        <span class="text-amber-700">❖</span>
+                        <span>峰雄山常源寺の五百年の歴史と祈りを紡ぐテーマソング「常源寺・時を越えて」</span>
+                    </p>
+                    <div onclick="playAudio('./music_jyougenji_tokiwokoete.mp3', '常源寺・時を越えて', [
+                        '【テーマソング】峰雄山常源寺の五百年の歴史と祈りを紡ぐテーマソング「常源寺・時を越えて」。',
+                        '【伝統と未来】戦国の世から現代、自由そして未来へと受け継がれる先人たちの志と感謝の音色。',
+                        '【心を澄まして】南相木村の豊かな自然と深き信仰の歩みに想いを馳せながらお聴きください。'
+                    ], this)" class="top-audio-btn cursor-pointer py-3.5 px-4 rounded-2xl shadow-md flex items-center justify-between gap-3">
+                        <div class="flex items-center space-x-3 min-w-0 flex-1">
+                            <div class="w-8 h-8 rounded-xl bg-amber-200 border border-amber-400 flex items-center justify-center shrink-0 text-amber-900">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-2v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12 0c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-2"></path></svg>
+                            </div>
+                            <div class="min-w-0 flex-1 flex flex-wrap items-center gap-2">
+                                <span class="btn-badge text-[10px] px-2.5 py-0.5 rounded-full shrink-0 shadow-sm">テーマソング</span>
+                                <h4 class="btn-title text-xs md:text-sm title-serif tracking-wide truncate">常源寺・時を越えて</h4>
+                            </div>
                         </div>
-                        <div class="min-w-0 flex-1 flex flex-wrap items-center gap-1.5 sm:gap-2.5">
-                            <span class="btn-badge text-[10px] px-2.5 py-0.5 rounded-full shrink-0 shadow-sm">テーマソング</span>
-                            <h4 class="btn-title text-xs md:text-sm title-serif tracking-wide truncate" style="color: #1c1917 !important; font-weight: 900 !important;">常源寺・時を越えて</h4>
-                        </div>
+                        <span class="btn-play-tag text-xs px-3 py-1.5 rounded-xl shrink-0 shadow-md">再生 🎧</span>
                     </div>
-                    <span class="btn-play-tag text-xs px-3 py-1.5 rounded-xl shrink-0 transition-colors shadow-md flex items-center gap-1">
-                        再生 🎧
-                    </span>
                 </div>
 
-                <!-- 【第一幕】大井氏の重臣・相木氏の隆盛 -->
-                <div onclick="playAudio('./matome_ooishi_yakata.mp3', '【第一幕】大井氏の重臣・相木氏の隆盛 〜佐久を支えた栄華と、盟友として掛け抜けた時代〜', [
-                    '【第一幕：佐久の栄華】佐久の有力領主・大井氏の重臣として地域の発展と平安を支えた相木氏の隆盛の歴史。',
-                    '【盟友とともに】地域住民と志を共にして乱世の佐久を駆け抜けた相木氏の武名と歴史の誇り。',
-                    '【常源寺の源流】五百年の歴史の幕開けとなる、相木氏と南相木の絆を紐解く音声講話。'
-                ], this)" class="top-audio-btn group cursor-pointer py-3.5 px-4 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-between gap-3 mt-3">
-                    <div class="flex items-center space-x-3 min-w-0 flex-1">
-                        <div class="w-8 h-8 rounded-xl bg-amber-200 border border-amber-400 flex items-center justify-center shrink-0 text-amber-900 group-hover:scale-105 transition-transform">
-                            <svg class="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path></svg>
+                <!-- 3. 三幕講話シリーズ -->
+                <div class="space-y-2.5 pt-2">
+                    <!-- 【第一幕】 -->
+                    <div onclick="playAudio('./matome_ooishi_yakata.mp3', '【第一幕】大井氏の重臣・相木氏の隆盛 〜佐久を支えた栄華と、盟友として掛け抜けた時代〜', [
+                        '【第一幕：佐久の栄華】佐久の有力領主・大井氏の重臣として地域の発展と平安を支えた相木氏の隆盛の歴史。',
+                        '【盟友とともに】地域住民と志を共にして乱世の佐久を駆け抜けた相木氏の武名と歴史の誇り。',
+                        '【常源寺の源流】五百年の歴史の幕開けとなる、相木氏と南相木の絆を紐解く音声講話。'
+                    ], this)" class="top-audio-btn cursor-pointer py-3.5 px-4 rounded-2xl shadow-md flex items-center justify-between gap-3">
+                        <div class="flex items-center space-x-3 min-w-0 flex-1">
+                            <div class="w-8 h-8 rounded-xl bg-amber-200 border border-amber-400 flex items-center justify-center shrink-0 text-amber-900">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path></svg>
+                            </div>
+                            <div class="min-w-0 flex-1 flex flex-wrap items-center gap-2">
+                                <span class="btn-badge text-[10px] px-2.5 py-0.5 rounded-full shrink-0 shadow-sm">音声講話</span>
+                                <h4 class="btn-title text-xs md:text-sm title-serif tracking-wide truncate">【第一幕】大井氏の重臣・相木氏の隆盛 〜佐久を支えた栄華と、盟友として掛け抜けた時代〜</h4>
+                            </div>
                         </div>
-                        <div class="min-w-0 flex-1 flex flex-wrap items-center gap-1.5 sm:gap-2.5">
-                            <span class="btn-badge text-[10px] px-2.5 py-0.5 rounded-full shrink-0 shadow-sm">音声講話</span>
-                            <h4 class="btn-title text-xs md:text-sm title-serif tracking-wide truncate" style="color: #1c1917 !important; font-weight: 900 !important;">【第一幕】大井氏の重臣・相木氏の隆盛 〜佐久を支えた栄華と、盟友として掛け抜けた時代〜</h4>
-                        </div>
+                        <span class="btn-play-tag text-xs px-3 py-1.5 rounded-xl shrink-0 shadow-md">再生 🎧</span>
                     </div>
-                    <span class="btn-play-tag text-xs px-3 py-1.5 rounded-xl shrink-0 transition-colors shadow-md flex items-center gap-1">
-                        再生 🎧
-                    </span>
+
+                    <!-- 【第二幕】 -->
+                    <div onclick="playAudio('./matome_aikiichibei_yakata.mp3', '【第二幕】武田支配下の苦渋と南相木の保全 〜山河を守るため、武田の権威を受け入れる誓い〜', [
+                        '【第二幕：苦渋の断腸】武田信玄の侵攻に対し、郷土の山河と領民を守り抜くために下した相木市兵衛の英断。',
+                        '【郷土の保全】戦火から村と常源寺の礎を守り、地域の平和を勝ち取るための知略と葛藤の歩み。',
+                        '【受け継がれる祈り】武田の権威を受け入れつつも自治を守り抜いた先人の苦難の軌跡。'
+                    ], this)" class="top-audio-btn cursor-pointer py-3.5 px-4 rounded-2xl shadow-md flex items-center justify-between gap-3">
+                        <div class="flex items-center space-x-3 min-w-0 flex-1">
+                            <div class="w-8 h-8 rounded-xl bg-amber-200 border border-amber-400 flex items-center justify-center shrink-0 text-amber-900">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path></svg>
+                            </div>
+                            <div class="min-w-0 flex-1 flex flex-wrap items-center gap-2">
+                                <span class="btn-badge text-[10px] px-2.5 py-0.5 rounded-full shrink-0 shadow-sm">音声講話</span>
+                                <h4 class="btn-title text-xs md:text-sm title-serif tracking-wide truncate">【第二幕】武田支配下の苦渋と南相木の保全 〜山河を守るため、武田の権威を受け入れる誓い〜</h4>
+                            </div>
+                        </div>
+                        <span class="btn-play-tag text-xs px-3 py-1.5 rounded-xl shrink-0 shadow-md">再生 🎧</span>
+                    </div>
+
+                    <!-- 【第三幕】 -->
+                    <div onclick="playAudio('./matome_kouhu_yakata.mp3', '【第三幕】甲府下向と武田信玄への誓約 〜躑躅ヶ崎館での奉納と、48年に及ぶ自治への一歩〜', [
+                        '【第三幕：躑躅ヶ崎館での誓約】甲府へ下向し、武田信玄へ誓約を交わすことで南相木の自治と安泰を確約させた瞬間。',
+                        '【48年の自治へ】過酷な乱世を生き抜き、現代へ続く地域文化と常源寺の祈りの基盤を決定づけた歩み。',
+                        '【未来へ紡ぐ歴史】信玄公との対話を経て勝ち得た南相木の平和と常源寺の発展を語り継ぎます。'
+                    ], this)" class="top-audio-btn cursor-pointer py-3.5 px-4 rounded-2xl shadow-md flex items-center justify-between gap-3">
+                        <div class="flex items-center space-x-3 min-w-0 flex-1">
+                            <div class="w-8 h-8 rounded-xl bg-amber-200 border border-amber-400 flex items-center justify-center shrink-0 text-amber-900">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path></svg>
+                            </div>
+                            <div class="min-w-0 flex-1 flex flex-wrap items-center gap-2">
+                                <span class="btn-badge text-[10px] px-2.5 py-0.5 rounded-full shrink-0 shadow-sm">音声講話</span>
+                                <h4 class="btn-title text-xs md:text-sm title-serif tracking-wide truncate">【第三幕】甲府下向と武田信玄への誓約 〜躑躅ヶ崎館での奉納と、48年に及ぶ自治への一歩〜</h4>
+                            </div>
+                        </div>
+                        <span class="btn-play-tag text-xs px-3 py-1.5 rounded-xl shrink-0 shadow-md">再生 🎧</span>
+                    </div>
                 </div>
 
-                <!-- 【第二幕】武田支配下の苦渋と南相木の保全 -->
-                <div onclick="playAudio('./matome_aikiichibei_yakata.mp3', '【第二幕】武田支配下の苦渋と南相木の保全 〜山河を守るため、武田の権威を受け入れる誓い〜', [
-                    '【第二幕：苦渋の断腸】武田信玄の侵攻に対し、郷土の山河と領民を守り抜くために下した相木市兵衛の英断。',
-                    '【郷土の保全】戦火から村と常源寺の礎を守り、地域の平和を勝ち取るための知略と葛藤の歩み。',
-                    '【受け継がれる祈り】武田の権威を受け入れつつも自治を守り抜いた先人の苦難の軌跡。'
-                ], this)" class="top-audio-btn group cursor-pointer py-3.5 px-4 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-between gap-3 mt-2.5">
-                    <div class="flex items-center space-x-3 min-w-0 flex-1">
-                        <div class="w-8 h-8 rounded-xl bg-amber-200 border border-amber-400 flex items-center justify-center shrink-0 text-amber-900 group-hover:scale-105 transition-transform">
-                            <svg class="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path></svg>
-                        </div>
-                        <div class="min-w-0 flex-1 flex flex-wrap items-center gap-1.5 sm:gap-2.5">
-                            <span class="btn-badge text-[10px] px-2.5 py-0.5 rounded-full shrink-0 shadow-sm">音声講話</span>
-                            <h4 class="btn-title text-xs md:text-sm title-serif tracking-wide truncate" style="color: #1c1917 !important; font-weight: 900 !important;">【第二幕】武田支配下の苦渋と南相木の保全 〜山河を守るため、武田の権威を受け入れる誓い〜</h4>
-                        </div>
-                    </div>
-                    <span class="btn-play-tag text-xs px-3 py-1.5 rounded-xl shrink-0 transition-colors shadow-md flex items-center gap-1">
-                        再生 🎧
-                    </span>
-                </div>
-
-                <!-- 【第三幕】甲府下向と武田信玄への誓約 -->
-                <div onclick="playAudio('./matome_kouhu_yakata.mp3', '【第三幕】甲府下向と武田信玄への誓約 〜躑躅ヶ崎館での奉納と、48年に及ぶ自治への一歩〜', [
-                    '【第三幕：躑躅ヶ崎館での誓約】甲府へ下向し、武田信玄へ誓約を交わすことで南相木の自治と安泰を確約させた瞬間。',
-                    '【48年の自治へ】過酷な乱世を生き抜き、現代へ続く地域文化と常源寺の祈りの基盤を決定づけた歩み。',
-                    '【未来へ紡ぐ歴史】信玄公との対話を経て勝ち得た南相木の平和と常源寺の発展を語り継ぎます。'
-                ], this)" class="top-audio-btn group cursor-pointer py-3.5 px-4 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-between gap-3 mt-2.5">
-                    <div class="flex items-center space-x-3 min-w-0 flex-1">
-                        <div class="w-8 h-8 rounded-xl bg-amber-200 border border-amber-400 flex items-center justify-center shrink-0 text-amber-900 group-hover:scale-105 transition-transform">
-                            <svg class="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path></svg>
-                        </div>
-                        <div class="min-w-0 flex-1 flex flex-wrap items-center gap-1.5 sm:gap-2.5">
-                            <span class="btn-badge text-[10px] px-2.5 py-0.5 rounded-full shrink-0 shadow-sm">音声講話</span>
-                            <h4 class="btn-title text-xs md:text-sm title-serif tracking-wide truncate" style="color: #1c1917 !important; font-weight: 900 !important;">【第三幕】甲府下向と武田信玄への誓約 〜躑躅ヶ崎館での奉納と、48年に及ぶ自治への一歩〜</h4>
-                        </div>
-                    </div>
-                    <span class="btn-play-tag text-xs px-3 py-1.5 rounded-xl shrink-0 transition-colors shadow-md flex items-center gap-1">
-                        再生 🎧
-                    </span>
-                </div>
-
-                <section>
-                    <div class="flex items-center justify-between mb-5">
+                <section class="pt-4">
+                    <div class="flex items-center justify-between mb-4">
                         <h2 class="text-xs font-bold text-amber-900 uppercase tracking-[0.3em]">Categories</h2>
-                        <span class="text-[10px] text-stone-400 font-medium">タップでカテゴリーへ移動</span>
+                        <span class="text-[10px] text-stone-500 font-medium">タップでカテゴリーへ移動</span>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         
                         <!-- 1. 歴史探訪ムービー -->
-                        <a href="#cat-movies" class="category-card p-4 bg-gradient-to-br from-white via-stone-50/50 to-red-50/20 rounded-2xl border border-red-200/60 hover:border-red-400 transition-all block group shadow-sm">
+                        <a href="#cat-movies" class="category-card p-4 bg-gradient-to-br from-white via-stone-50/50 to-red-50/20 rounded-2xl border border-red-200/80 hover:border-red-400 transition-all block group shadow-sm">
                             <div class="flex items-start space-x-3.5">
-                                <div class="w-10 h-10 rounded-xl bg-red-100 border border-red-200 flex items-center justify-center shrink-0 shadow-sm overflow-hidden text-red-800">
+                                <div class="w-10 h-10 rounded-xl bg-red-100 border border-red-200 flex items-center justify-center shrink-0 shadow-sm text-red-800">
                                     <svg class="cat-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
                                     </svg>
                                 </div>
-                                <div class="flex-1">
+                                <div class="flex-1 min-w-0">
                                     <div class="flex items-center justify-between mb-1">
                                         <h4 class="text-sm font-black text-stone-800 group-hover:text-red-800 transition-colors flex items-center gap-1.5">
                                             歴史探訪ムービー
@@ -340,14 +357,14 @@
                         </a>
 
                         <!-- 2. 常源寺の歴史と音声講話 -->
-                        <a href="#cat-music" class="category-card p-4 bg-gradient-to-br from-white via-stone-50/50 to-amber-50/30 rounded-2xl border border-amber-200/70 hover:border-amber-400 transition-all block group shadow-sm">
+                        <a href="#cat-music" class="category-card p-4 bg-gradient-to-br from-white via-stone-50/50 to-amber-50/30 rounded-2xl border border-amber-200/80 hover:border-amber-400 transition-all block group shadow-sm">
                             <div class="flex items-start space-x-3.5">
-                                <div class="w-10 h-10 rounded-xl bg-amber-100 border border-amber-300 flex items-center justify-center shrink-0 shadow-sm overflow-hidden text-amber-800">
+                                <div class="w-10 h-10 rounded-xl bg-amber-100 border border-amber-300 flex items-center justify-center shrink-0 shadow-sm text-amber-800">
                                     <svg class="cat-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                                     </svg>
                                 </div>
-                                <div class="flex-1">
+                                <div class="flex-1 min-w-0">
                                     <div class="flex items-center justify-between mb-1">
                                         <h4 class="text-sm font-black text-stone-800 group-hover:text-amber-800 transition-colors flex items-center gap-1.5">
                                             常源寺の歴史と音声講話
@@ -360,14 +377,14 @@
                         </a>
 
                         <!-- 3. 伽藍・仏像と寺宝の教え -->
-                        <a href="#cat-growth" class="category-card p-4 bg-gradient-to-br from-white via-stone-50/50 to-emerald-50/30 rounded-2xl border border-emerald-200/60 hover:border-emerald-400 transition-all block group shadow-sm">
+                        <a href="#cat-growth" class="category-card p-4 bg-gradient-to-br from-white via-stone-50/50 to-emerald-50/30 rounded-2xl border border-emerald-200/80 hover:border-emerald-400 transition-all block group shadow-sm">
                             <div class="flex items-start space-x-3.5">
-                                <div class="w-10 h-10 rounded-xl bg-emerald-100 border border-emerald-200 flex items-center justify-center shrink-0 shadow-sm overflow-hidden text-emerald-800">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-100 border border-emerald-200 flex items-center justify-center shrink-0 shadow-sm text-emerald-800">
                                     <svg class="cat-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5"></path>
                                     </svg>
                                 </div>
-                                <div class="flex-1">
+                                <div class="flex-1 min-w-0">
                                     <div class="flex items-center justify-between mb-1">
                                         <h4 class="text-sm font-black text-stone-800 group-hover:text-emerald-800 transition-colors flex items-center gap-1.5">
                                             伽藍・仏像・寺宝の解説
@@ -382,12 +399,12 @@
                         <!-- 4. 地域の風土と供養の伝統 -->
                         <a href="#cat-seasons" class="category-card p-4 bg-gradient-to-br from-white via-stone-50/50 to-stone-100 rounded-2xl border border-stone-200 hover:border-stone-400 transition-all block group shadow-sm">
                             <div class="flex items-start space-x-3.5">
-                                <div class="w-10 h-10 rounded-xl bg-stone-200 border border-stone-300 flex items-center justify-center shrink-0 shadow-sm overflow-hidden text-stone-800">
+                                <div class="w-10 h-10 rounded-xl bg-stone-200 border border-stone-300 flex items-center justify-center shrink-0 shadow-sm text-stone-800">
                                     <svg class="cat-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h1.5a2.5 2.5 0 002.5-2.5V11a2 2 0 012-2h1.055M11 20.935V19a2 2 0 00-2-2h-1a2 2 0 01-2-2v-1a2 2 0 00-2-2H3.055M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
                                 </div>
-                                <div class="flex-1">
+                                <div class="flex-1 min-w-0">
                                     <div class="flex items-center justify-between mb-1">
                                         <h4 class="text-sm font-black text-stone-800 group-hover:text-stone-900 transition-colors flex items-center gap-1.5">
                                             南相木の風土と伝統行事
@@ -403,7 +420,8 @@
                 </section>
             </div>
 
-            <div class="glass-card rounded-3xl p-6 md:p-8 border border-amber-200/80 shadow-xl">
+            <!-- メディア表示パネル -->
+            <div class="glass-card rounded-3xl p-5 md:p-8 border border-amber-200/80 shadow-xl">
                 <div class="flex items-center justify-between mb-4">
                     <span class="text-xs font-bold text-amber-900 uppercase tracking-widest flex items-center gap-1.5">
                         <span class="inline-block w-2 h-2 rounded-full bg-amber-600 animate-pulse"></span>
@@ -432,7 +450,7 @@
                     </div>
 
                     <div id="media-display-area" class="mb-5 rounded-2xl overflow-hidden bg-black/60 border border-amber-500/20">
-                        <!-- Dynamic content via JS -->
+                        <!-- JS動的挿入 -->
                     </div>
 
                     <div id="audio-player-container" class="hidden mb-5 p-3.5 bg-amber-500/10 rounded-2xl border border-amber-400/30 backdrop-blur-md">
@@ -452,7 +470,7 @@
                 <div class="space-y-6" id="playlist">
 
                     <!-- カテゴリー1: 歴史探訪ムービー -->
-                    <div id="cat-movies" class="p-4 rounded-2xl bg-red-50/40 border border-red-200/80 space-y-3 scroll-mt-20">
+                    <div id="cat-movies" class="p-4 rounded-2xl bg-red-50/50 border border-red-200/80 space-y-3 scroll-mt-20">
                         <div class="flex items-center space-x-2.5 pb-2.5 border-b border-red-200">
                             <div class="w-7 h-7 rounded-lg bg-red-100 border border-red-300 flex items-center justify-center shrink-0 shadow-sm text-red-800">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
@@ -469,7 +487,7 @@
                                 '【常源寺 歴史探訪】南相木村の歴史ある名刹・常源寺にまつわる貴重な対談映像です。',
                                 '【地域と仏閣】開基・相木市兵衛公の歴史や、地域に深く根ざしてきた信仰と文化を深く語り合います。',
                                 '【歴史のロマン】南相木村の豊かな自然と連なる歴史の重みを実感していただけます。'
-                            ], this)" class="group block p-3 rounded-xl bg-white/90 border border-red-200/80 hover:border-red-400 hover:bg-white hover:shadow-md transition-all duration-300">
+                            ], this)" class="group block p-3 rounded-xl bg-white/90 border border-red-200 hover:border-red-400 hover:bg-white hover:shadow-md transition-all duration-300">
                                 <div class="flex items-center justify-between gap-2.5">
                                     <div class="min-w-0 flex-1">
                                         <h4 class="text-xs md:text-sm font-bold text-stone-800 group-hover:text-red-800 leading-snug">常源寺（南相木村）歴史探訪対談</h4>
@@ -486,7 +504,7 @@
                                 '【義民・武将 相木市兵衛】南相木村の歴史に大きな名を刻んだ領主・相木市兵衛の物語。',
                                 '【領民を慈しむ心】戦国の動乱期において武功を立てつつも、領内を平和に導いた先人の志を描きます。',
                                 '【未来へ語り継ぐ】地域の誇りとして後世へ伝えたい伝承と歴史ロマン。'
-                            ], this)" class="group block p-3 rounded-xl bg-white/90 border border-red-200/80 hover:border-red-400 hover:bg-white hover:shadow-md transition-all duration-300">
+                            ], this)" class="group block p-3 rounded-xl bg-white/90 border border-red-200 hover:border-red-400 hover:bg-white hover:shadow-md transition-all duration-300">
                                 <div class="flex items-center justify-between gap-2.5">
                                     <div class="min-w-0 flex-1">
                                         <h4 class="text-xs md:text-sm font-bold text-stone-800 group-hover:text-red-800 leading-snug">相木市兵衛物語</h4>
@@ -503,7 +521,7 @@
                                 '【秘められた歴史】常源寺に今も遺される秘話や知られざる歴史的エピソードを紹介する動画です。',
                                 '【伝承と寺宝】五百年の歴史の中で語り継がれてきた常源寺の深遠な謎と歴史のロマン。',
                                 '【南相木村の記憶】地域と共に歩んできたお寺の隠された物語を映像で紐解きます。'
-                            ], this)" class="group block p-3 rounded-xl bg-white/90 border border-red-200/80 hover:border-red-400 hover:bg-white hover:shadow-md transition-all duration-300">
+                            ], this)" class="group block p-3 rounded-xl bg-white/90 border border-red-200 hover:border-red-400 hover:bg-white hover:shadow-md transition-all duration-300">
                                 <div class="flex items-center justify-between gap-2.5">
                                     <div class="min-w-0 flex-1">
                                         <h4 class="text-xs md:text-sm font-bold text-stone-800 group-hover:text-red-800 leading-snug">常源寺に隠された歴史</h4>
@@ -535,7 +553,7 @@
                                 '【歴史と文化の挑戦】常源寺の五百年の歴史や仏閣・地域文化に関する30問のクイズです。',
                                 '【楽しく学ぶ】常源寺の創建、相木市兵衛公の足跡、徳忠禅師の教えなどをクイズ形式で楽しく確認できます。',
                                 '【挑戦してみよう】歴史の知識を深め、未来へつなぐ学びの広場としてぜひチャレンジしてください。'
-                            ], this)" class="group block p-3 rounded-xl bg-white/90 border border-amber-300/80 hover:border-amber-500 hover:bg-white hover:shadow-md transition-all duration-300">
+                            ], this)" class="group block p-3 rounded-xl bg-white/90 border border-amber-300 hover:border-amber-500 hover:bg-white hover:shadow-md transition-all duration-300">
                                 <div class="flex items-center justify-between gap-2.5">
                                     <div class="min-w-0 flex-1">
                                         <h4 class="text-xs md:text-sm font-bold text-stone-800 group-hover:text-amber-800 leading-snug">常源寺歴史・文化クイズ30問</h4>
@@ -552,13 +570,13 @@
                                 '【常源寺の創建】天文19年（1550年）、田口城主となった相木市兵衛常喜公が領民の先祖供養のために開基となり創建されました。',
                                 '【開基・相木常喜公】武田晴信に仕え信州先方衆として活躍。常源寺へ現在の中島の館跡を含む広大な土地を寄進しました。',
                                 '【平和を願う心】勇猛な武将でありながら領民の安泰と平和を深く祈り、晩年は仏道に入り「相木能登入道常源」と称しました。'
-                            ], this)" class="group cursor-pointer p-3.5 rounded-xl bg-white/90 border border-amber-200/80 hover:border-amber-400 hover:bg-white hover:shadow-md transition-all duration-300">
-                                <div class="flex items-center justify-between">
+                            ], this)" class="group cursor-pointer p-3.5 rounded-xl bg-white/90 border border-amber-200 hover:border-amber-400 hover:bg-white hover:shadow-md transition-all duration-300">
+                                <div class="flex items-center justify-between gap-2">
                                     <div>
-                                        <h4 class="text-sm font-bold text-stone-800 group-hover:text-amber-800">常源寺創建と開基・相木市兵衛</h4>
+                                        <h4 class="text-xs md:text-sm font-bold text-stone-800 group-hover:text-amber-800">常源寺創建と開基・相木市兵衛</h4>
                                         <p class="text-[10px] text-amber-700 font-medium mt-0.5">🎵 音声解説 • 天文19年創建と常喜公の歩み</p>
                                     </div>
-                                    <span class="text-xs text-amber-800 font-bold bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200">聴く 🎧</span>
+                                    <span class="text-xs text-amber-800 font-bold bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200 shrink-0">聴く 🎧</span>
                                 </div>
                             </div>
 
@@ -567,13 +585,13 @@
                                 '【開山・徳忠禅師】前山城主・伴野光利の子として誕生。生死を超越した修行を重ね、関東一円に高僧としてその名を届かせました。',
                                 '【貞祥寺と常源寺】大永元年に貞祥寺を開山後、相木常喜公の請願を受け、常源寺の開山となられました。',
                                 '【正親町天皇より下賜】永録元年には正親町天皇のお召しにより御所に参内し「仏光円明禅師」の号を賜りました。'
-                            ], this)" class="group cursor-pointer p-3.5 rounded-xl bg-white/90 border border-amber-200/80 hover:border-amber-400 hover:bg-white hover:shadow-md transition-all duration-300">
-                                <div class="flex items-center justify-between">
+                            ], this)" class="group cursor-pointer p-3.5 rounded-xl bg-white/90 border border-amber-200 hover:border-amber-400 hover:bg-white hover:shadow-md transition-all duration-300">
+                                <div class="flex items-center justify-between gap-2">
                                     <div>
-                                        <h4 class="text-sm font-bold text-stone-800 group-hover:text-amber-800">開山・節香徳忠禅師と五創の教え</h4>
+                                        <h4 class="text-xs md:text-sm font-bold text-stone-800 group-hover:text-amber-800">開山・節香徳忠禅師と五創の教え</h4>
                                         <p class="text-[10px] text-amber-700 font-medium mt-0.5">🎵 音声解説 • 徳忠和尚の徳風と禅の心</p>
                                     </div>
-                                    <span class="text-xs text-amber-800 font-bold bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200">聴く 🎧</span>
+                                    <span class="text-xs text-amber-800 font-bold bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200 shrink-0">聴く 🎧</span>
                                 </div>
                             </div>
 
@@ -582,20 +600,20 @@
                                 '【本尊・釈迦牟ニ仏】常源寺の礼拝の中心であり、四苦（生老病死）から人々を救う教主釈迦如来を祀ります。脇仏は文殊・普賢両菩薩。',
                                 '【七堂伽藍】本堂、山門、衆寮、庫裡（方丈）、位牌堂、鐘楼、経蔵の伽藍を整え、人々の心の糧となってきました。',
                                 '【仁王門の教え】山門に立つ金剛力士（仁王様）は欲望や迷いを打ちくだき、素直な心で仏の教えを受けるよう示しています。'
-                            ], this)" class="group cursor-pointer p-3.5 rounded-xl bg-white/90 border border-amber-200/80 hover:border-amber-400 hover:bg-white hover:shadow-md transition-all duration-300">
-                                <div class="flex items-center justify-between">
+                            ], this)" class="group cursor-pointer p-3.5 rounded-xl bg-white/90 border border-amber-200 hover:border-amber-400 hover:bg-white hover:shadow-md transition-all duration-300">
+                                <div class="flex items-center justify-between gap-2">
                                     <div>
-                                        <h4 class="text-sm font-bold text-stone-800 group-hover:text-amber-800">ご本尊釈迦牟ニ仏と七堂伽藍</h4>
+                                        <h4 class="text-xs md:text-sm font-bold text-stone-800 group-hover:text-amber-800">ご本尊釈迦牟ニ仏と七堂伽藍</h4>
                                         <p class="text-[10px] text-amber-700 font-medium mt-0.5">🎵 音声解説 • お寺の配置と仏像の意味</p>
                                     </div>
-                                    <span class="text-xs text-amber-800 font-bold bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200">聴く 🎧</span>
+                                    <span class="text-xs text-amber-800 font-bold bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200 shrink-0">聴く 🎧</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- カテゴリー3: 伽藍・仏像と寺宝の教え -->
-                    <div id="cat-growth" class="p-4 rounded-2xl bg-emerald-50/40 border border-emerald-200/80 space-y-3 scroll-mt-20">
+                    <div id="cat-growth" class="p-4 rounded-2xl bg-emerald-50/50 border border-emerald-200/80 space-y-3 scroll-mt-20">
                         <div class="flex items-center space-x-2.5 pb-2.5 border-b border-emerald-200">
                             <div class="w-7 h-7 rounded-lg bg-emerald-100 border border-emerald-200 flex items-center justify-center shrink-0 shadow-sm text-emerald-800">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5"></path></svg>
@@ -639,7 +657,7 @@
                     </div>
 
                     <!-- カテゴリー4: 南相木の風土と伝統行事 -->
-                    <div id="cat-seasons" class="p-4 rounded-2xl bg-stone-100/70 border border-stone-200 space-y-3 scroll-mt-20">
+                    <div id="cat-seasons" class="p-4 rounded-2xl bg-stone-100/80 border border-stone-200 space-y-3 scroll-mt-20">
                         <div class="flex items-center space-x-2.5 pb-2.5 border-b border-stone-300">
                             <div class="w-7 h-7 rounded-lg bg-stone-200 border border-stone-300 flex items-center justify-center shrink-0 shadow-sm text-stone-800">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 002 2h1.5a2.5 2.5 0 002.5-2.5V11a2 2 0 012-2h1.055M11 20.935V19a2 2 0 00-2-2h-1a2 2 0 01-2-2v-1a2 2 0 00-2-2H3.055M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -690,7 +708,7 @@
         </div>
 
         <!-- フッター -->
-        <footer class="mt-12 text-center text-xs text-stone-500 space-y-2 border-t border-amber-200/50 pt-8">
+        <footer class="mt-12 text-center text-xs text-stone-500 space-y-2 border-t border-amber-200/60 pt-8">
             <p class="title-serif text-amber-950 font-bold text-sm">常源寺・時を超えて 〜五百年の歴史と、未来へつなぐ祈り〜</p>
             <p class="text-[11px] text-stone-600">南相木村 峰雄山常源寺 デジタルアーカイブス</p>
 
@@ -766,9 +784,9 @@
             const dots = document.querySelectorAll('.slider-dot');
             dots.forEach((dot, idx) => {
                 if (idx === currentSlideIndex) {
-                    dot.className = 'slider-dot w-3 h-2 rounded-full bg-amber-700 transition-all duration-300';
+                    dot.className = 'slider-dot w-3.5 h-2 rounded-full bg-amber-700 transition-all duration-300';
                 } else {
-                    dot.className = 'slider-dot w-2 h-2 rounded-full bg-amber-300/70 hover:bg-amber-500 transition-all duration-300 cursor-pointer';
+                    dot.className = 'slider-dot w-2 h-2 rounded-full bg-amber-300/80 hover:bg-amber-600 transition-all duration-300 cursor-pointer';
                 }
             });
         }
@@ -806,6 +824,7 @@
             sliderImages.forEach((_, idx) => {
                 const btn = document.createElement('button');
                 btn.type = 'button';
+                btn.className = 'slider-dot';
                 btn.ariaLabel = `画像 ${idx + 1} へ移動`;
                 btn.onclick = () => goToSlide(idx);
                 container.appendChild(btn);
@@ -858,7 +877,7 @@
                 currentEpisodeInterval = setInterval(() => {
                     index = (index + 1) % episodes.length;
                     episodeTextEl.classList.remove('insight-text-anim');
-                    void episodeTextEl.offsetWidth; // アニメーションリセット
+                    void episodeTextEl.offsetWidth; // アニメーションのリセット
                     episodeTextEl.textContent = episodes[index];
                     episodeTextEl.classList.add('insight-text-anim');
                 }, 5000);
